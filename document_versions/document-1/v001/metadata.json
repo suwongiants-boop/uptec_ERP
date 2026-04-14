@@ -1,23 +1,23 @@
 {
   "document_id": 1,
-  "document_title": "Latest Company Overview",
+  "document_title": "Visual First Overview",
   "version_number": 1,
   "source_event": "initial_generation",
   "note": "Initial prompt-based preview generation",
-  "generation_request": "Create the latest company overview in English with 10 pages.",
-  "created_at": "2026-04-14T08:03:04.934738+00:00",
+  "generation_request": "기존 보관 문서 활용 이미지 위주로 5장 짜리 만들어줘",
+  "created_at": "2026-04-14T08:03:07.349993+00:00",
   "preview_meta": {
-    "language": "en",
-    "language_label": "English",
-    "page_count": 10,
+    "language": "ko",
+    "language_label": "한국어",
+    "page_count": 5,
     "audience": "general",
-    "request": "Create the latest company overview in English with 10 pages.",
+    "request": "기존 보관 문서 활용 이미지 위주로 5장 짜리 만들어줘",
     "revision_count": 0,
     "last_revision_round": 0,
-    "presentation_style": "standard",
-    "presentation_style_label": "텍스트+비주얼 혼합",
+    "presentation_style": "visual",
+    "presentation_style_label": "이미지 중심",
     "source_document_count": 0,
-    "reference_document_count": 0,
+    "reference_document_count": 1,
     "revision_asset_count": 0
   }
 }
