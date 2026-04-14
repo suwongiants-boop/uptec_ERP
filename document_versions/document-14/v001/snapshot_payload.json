@@ -1,0 +1,171 @@
+{
+  "generation_mode": "category_reference_generate",
+  "summary": {
+    "target_template": "표준 회사소개서",
+    "target_template_type": "회사소개서",
+    "source_document_count": 9,
+    "source_document_titles": [
+      "회사 소개서 영문",
+      "최신 회사 소개서",
+      "GitHub Auto Sync Check",
+      "GitHub Sync Flow Check",
+      "Prompt Flow Check",
+      "회사 소개서",
+      "Runtime Blank Optional Check",
+      "업텍_국문_회사소개서_보강본",
+      "한국남부발전_회사소개서_초안"
+    ],
+    "reference_document_count": 3,
+    "reference_document_titles": [
+      "회사 소개서",
+      "회사 소개서 영문 2510",
+      "업텍 회사소개 발표자료"
+    ],
+    "reused_block_count": 3,
+    "generated_block_count": 0
+  },
+  "blocks": [
+    {
+      "title": "대표 실적",
+      "type": "text",
+      "tags": "reference,case",
+      "decision": "reuse",
+      "decision_label": "재사용",
+      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
+      "source_document": "회사 소개서 영문",
+      "source_template": "표준 회사소개서",
+      "content": "지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다."
+    },
+    {
+      "title": "업텍 소개",
+      "type": "text",
+      "tags": "company,overview",
+      "decision": "reuse",
+      "decision_label": "재사용",
+      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
+      "source_document": "회사 소개서 영문",
+      "source_template": "표준 회사소개서",
+      "content": "업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다."
+    },
+    {
+      "title": "핵심 역량",
+      "type": "text",
+      "tags": "capability,technology",
+      "decision": "reuse",
+      "decision_label": "재사용",
+      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
+      "source_document": "회사 소개서 영문",
+      "source_template": "표준 회사소개서",
+      "content": "전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다."
+    }
+  ],
+  "generation_request": "기존 보관 문서 활용 이미지 위주로 5장 짜리 만들어줘",
+  "preview_pages": [
+    {
+      "page_number": 1,
+      "page_label": "1페이지",
+      "title": "최신소개서",
+      "theme_label": "표지",
+      "body": [
+        "Uptec 회사소개서 초안입니다. 요청사항과 참조 자산을 반영한 HTML 미리보기입니다.",
+        "이 페이지는 대표 실적, 업텍 소개 관련 승인 블록을 기준으로 정리했습니다. 지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다. 업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다."
+      ],
+      "bullets": [
+        "참조 섹션: 대표 실적",
+        "참조 섹션: 업텍 소개",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '표지' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "대표 실적",
+        "업텍 소개"
+      ]
+    },
+    {
+      "page_number": 2,
+      "page_label": "2페이지",
+      "title": "요약",
+      "theme_label": "요약",
+      "body": [
+        "Uptec의 핵심 역량과 적용 분야를 한눈에 이해할 수 있도록 문서 구조를 재정렬했습니다.",
+        "이 페이지는 업텍 소개, 핵심 역량 관련 승인 블록을 기준으로 정리했습니다. 업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다. 전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다."
+      ],
+      "bullets": [
+        "참조 섹션: 업텍 소개",
+        "참조 섹션: 핵심 역량",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '요약' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "업텍 소개",
+        "핵심 역량"
+      ]
+    },
+    {
+      "page_number": 3,
+      "page_label": "3페이지",
+      "title": "회사 개요",
+      "theme_label": "회사 개요",
+      "body": [
+        "Uptec은 전력 인프라와 현장 운영 이슈를 구조화해 설명하는 데 강점을 가진 팀입니다.",
+        "이 페이지는 업텍 소개 관련 승인 블록을 기준으로 정리했습니다. 업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다."
+      ],
+      "bullets": [
+        "참조 섹션: 업텍 소개",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '회사 개요' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "업텍 소개"
+      ]
+    },
+    {
+      "page_number": 4,
+      "page_label": "4페이지",
+      "title": "핵심 역량",
+      "theme_label": "핵심 역량",
+      "body": [
+        "계통 해석, DFOS 기반 감시, 현장 실증, 보고 문서 자동화를 연결한 수행 역량을 중심으로 정리했습니다.",
+        "이 페이지는 핵심 역량 관련 승인 블록을 기준으로 정리했습니다. 전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다."
+      ],
+      "bullets": [
+        "참조 섹션: 핵심 역량",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '핵심 역량' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "핵심 역량"
+      ]
+    },
+    {
+      "page_number": 5,
+      "page_label": "5페이지",
+      "title": "솔루션 구성",
+      "theme_label": "솔루션 구성",
+      "body": [
+        "고객 문제를 해결하는 서비스 묶음과 전달 방식이 한 페이지 안에서 이해되도록 구성했습니다.",
+        "이 페이지는 핵심 역량 관련 승인 블록을 기준으로 정리했습니다. 전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다."
+      ],
+      "bullets": [
+        "참조 섹션: 핵심 역량",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '솔루션 구성' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "핵심 역량"
+      ]
+    }
+  ],
+  "preview_meta": {
+    "language": "ko",
+    "language_label": "한국어",
+    "page_count": 5,
+    "audience": "general",
+    "request": "기존 보관 문서 활용 이미지 위주로 5장 짜리 만들어줘",
+    "revision_count": 0,
+    "last_revision_round": 0
+  }
+}
