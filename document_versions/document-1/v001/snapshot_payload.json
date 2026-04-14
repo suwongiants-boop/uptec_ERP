@@ -1,14 +1,14 @@
 {
   "generation_mode": "category_reference_generate",
   "summary": {
-    "target_template": "Blank Optional Fields",
+    "target_template": "Prompt Driven Overview",
     "target_template_type": "회사소개서",
     "source_document_count": 0,
     "source_document_titles": [],
     "reference_document_count": 0,
     "reference_document_titles": [],
     "reused_block_count": 0,
-    "generated_block_count": 1
+    "generated_block_count": 2
   },
   "source_documents": [],
   "reference_documents": [],
@@ -22,33 +22,46 @@
       "reason": "재사용 가능한 동일 섹션이 없어 새로 작성해야 합니다.",
       "source_document": "",
       "source_template": "",
-      "content": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
+      "content": "Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
+    },
+    {
+      "title": "Core Capabilities",
+      "type": "text",
+      "tags": "capability,technology",
+      "decision": "generate",
+      "decision_label": "신규 생성",
+      "reason": "재사용 가능한 동일 섹션이 없어 새로 작성해야 합니다.",
+      "source_document": "",
+      "source_template": "",
+      "content": "Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
     }
   ],
-  "generation_request": "",
+  "generation_request": "Create the latest company overview in English with 10 pages.",
   "preview_pages": [
     {
       "page_number": 1,
-      "page_label": "1페이지",
-      "title": "Blank Optional Generation",
-      "theme_label": "표지",
+      "page_label": "Page 1",
+      "title": "Latest Company Overview",
+      "theme_label": "Cover",
       "body": [
-        "Uptec 회사소개서 초안입니다. 요청사항과 참조 자산을 반영한 HTML 미리보기입니다.",
-        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
+        "This is the HTML preview for the latest Test Customer company overview, organized from the request and reference assets.",
+        "Reference sections: Company Overview, Core Capabilities. Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다. Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택…"
       ],
       "bullets": [
-        "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "Reference section: Company Overview",
+        "Reference section: Core Capabilities",
+        "Visual source: Company Overview"
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "image_note": "Suggested image: add a clean supporting visual that reinforces Test Customer's field and engineering credibility.",
       "source_titles": [
-        "Company Overview"
+        "Company Overview",
+        "Core Capabilities"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
           "title": "Company Overview",
-          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "summary": "Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존…",
           "badge": "승인 블록",
           "asset_type": "block",
           "file_url": "",
@@ -56,30 +69,32 @@
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "Visual sources prepared: 1 items from uploaded assets or archived references."
     },
     {
       "page_number": 2,
-      "page_label": "2페이지",
-      "title": "요약",
-      "theme_label": "요약",
+      "page_label": "Page 2",
+      "title": "Executive Summary",
+      "theme_label": "Executive Summary",
       "body": [
-        "이 페이지는 요약 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
+        "This page summarizes the Executive Summary story in a review-ready slide format.",
+        "Reference sections: Company Overview, Core Capabilities. Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다. Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택…"
       ],
       "bullets": [
-        "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "Reference section: Company Overview",
+        "Reference section: Core Capabilities",
+        "Visual source: Company Overview"
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "image_note": "Suggested image: add a clean supporting visual that reinforces Test Customer's field and engineering credibility.",
       "source_titles": [
-        "Company Overview"
+        "Company Overview",
+        "Core Capabilities"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
           "title": "Company Overview",
-          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "summary": "Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존…",
           "badge": "승인 블록",
           "asset_type": "block",
           "file_url": "",
@@ -87,22 +102,22 @@
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "Visual sources prepared: 1 items from uploaded assets or archived references."
     },
     {
       "page_number": 3,
-      "page_label": "3페이지",
-      "title": "회사 개요",
-      "theme_label": "회사 개요",
+      "page_label": "Page 3",
+      "title": "Company Overview",
+      "theme_label": "Company Overview",
       "body": [
-        "이 페이지는 회사 개요 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
+        "This page summarizes the Company Overview story in a review-ready slide format.",
+        "Reference sections: Company Overview. Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
-        "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "Reference section: Company Overview",
+        "Visual source: Company Overview"
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "image_note": "Suggested image: add a clean supporting visual that reinforces Test Customer's field and engineering credibility.",
       "source_titles": [
         "Company Overview"
       ],
@@ -110,7 +125,7 @@
       "visual_assets": [
         {
           "title": "Company Overview",
-          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "summary": "Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존…",
           "badge": "승인 블록",
           "asset_type": "block",
           "file_url": "",
@@ -118,30 +133,30 @@
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "Visual sources prepared: 1 items from uploaded assets or archived references."
     },
     {
       "page_number": 4,
-      "page_label": "4페이지",
-      "title": "핵심 역량",
-      "theme_label": "핵심 역량",
+      "page_label": "Page 4",
+      "title": "Core Capabilities",
+      "theme_label": "Core Capabilities",
       "body": [
-        "이 페이지는 핵심 역량 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
+        "This page summarizes the Core Capabilities story in a review-ready slide format.",
+        "Reference sections: Core Capabilities. Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
-        "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "Reference section: Core Capabilities",
+        "Visual source: Core Capabilities"
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "image_note": "Suggested image: add a clean supporting visual that reinforces Test Customer's field and engineering credibility.",
       "source_titles": [
-        "Company Overview"
+        "Core Capabilities"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Company Overview",
-          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "title": "Core Capabilities",
+          "summary": "Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존…",
           "badge": "승인 블록",
           "asset_type": "block",
           "file_url": "",
@@ -149,30 +164,30 @@
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "Visual sources prepared: 1 items from uploaded assets or archived references."
     },
     {
       "page_number": 5,
-      "page_label": "5페이지",
-      "title": "솔루션 구성",
-      "theme_label": "솔루션 구성",
+      "page_label": "Page 5",
+      "title": "Solution Portfolio",
+      "theme_label": "Solution Portfolio",
       "body": [
-        "이 페이지는 솔루션 구성 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
+        "This page summarizes the Solution Portfolio story in a review-ready slide format.",
+        "Reference sections: Core Capabilities. Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
-        "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "Reference section: Core Capabilities",
+        "Visual source: Core Capabilities"
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "image_note": "Suggested image: add a clean supporting visual that reinforces Test Customer's field and engineering credibility.",
       "source_titles": [
-        "Company Overview"
+        "Core Capabilities"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Company Overview",
-          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "title": "Core Capabilities",
+          "summary": "Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존…",
           "badge": "승인 블록",
           "asset_type": "block",
           "file_url": "",
@@ -180,30 +195,32 @@
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "Visual sources prepared: 1 items from uploaded assets or archived references."
     },
     {
       "page_number": 6,
-      "page_label": "6페이지",
-      "title": "대표 실적",
-      "theme_label": "대표 실적",
+      "page_label": "Page 6",
+      "title": "Representative References",
+      "theme_label": "Representative References",
       "body": [
-        "이 페이지는 대표 실적 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
+        "This page summarizes the Representative References story in a review-ready slide format.",
+        "Reference sections: Company Overview, Core Capabilities. Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다. Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택…"
       ],
       "bullets": [
-        "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "Reference section: Company Overview",
+        "Reference section: Core Capabilities",
+        "Visual source: Company Overview"
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "image_note": "Suggested image: add a clean supporting visual that reinforces Test Customer's field and engineering credibility.",
       "source_titles": [
-        "Company Overview"
+        "Company Overview",
+        "Core Capabilities"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
           "title": "Company Overview",
-          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "summary": "Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존…",
           "badge": "승인 블록",
           "asset_type": "block",
           "file_url": "",
@@ -211,30 +228,32 @@
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "Visual sources prepared: 1 items from uploaded assets or archived references."
     },
     {
       "page_number": 7,
-      "page_label": "7페이지",
-      "title": "수행 방식",
-      "theme_label": "수행 방식",
+      "page_label": "Page 7",
+      "title": "Delivery Workflow",
+      "theme_label": "Delivery Workflow",
       "body": [
-        "이 페이지는 수행 방식 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
+        "This page summarizes the Delivery Workflow story in a review-ready slide format.",
+        "Reference sections: Company Overview, Core Capabilities. Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다. Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택…"
       ],
       "bullets": [
-        "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "Reference section: Company Overview",
+        "Reference section: Core Capabilities",
+        "Visual source: Company Overview"
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "image_note": "Suggested image: add a clean supporting visual that reinforces Test Customer's field and engineering credibility.",
       "source_titles": [
-        "Company Overview"
+        "Company Overview",
+        "Core Capabilities"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
           "title": "Company Overview",
-          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "summary": "Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존…",
           "badge": "승인 블록",
           "asset_type": "block",
           "file_url": "",
@@ -242,30 +261,32 @@
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "Visual sources prepared: 1 items from uploaded assets or archived references."
     },
     {
       "page_number": 8,
-      "page_label": "8페이지",
-      "title": "고객 가치",
-      "theme_label": "고객 가치",
+      "page_label": "Page 8",
+      "title": "Customer Value",
+      "theme_label": "Customer Value",
       "body": [
-        "이 페이지는 고객 가치 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
+        "This page summarizes the Customer Value story in a review-ready slide format.",
+        "Reference sections: Company Overview, Core Capabilities. Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다. Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택…"
       ],
       "bullets": [
-        "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "Reference section: Company Overview",
+        "Reference section: Core Capabilities",
+        "Visual source: Company Overview"
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
+      "image_note": "Suggested image: add a clean supporting visual that reinforces Test Customer's field and engineering credibility.",
       "source_titles": [
-        "Company Overview"
+        "Company Overview",
+        "Core Capabilities"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
           "title": "Company Overview",
-          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "summary": "Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존…",
           "badge": "승인 블록",
           "asset_type": "block",
           "file_url": "",
@@ -273,15 +294,81 @@
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "Visual sources prepared: 1 items from uploaded assets or archived references."
+    },
+    {
+      "page_number": 9,
+      "page_label": "Page 9",
+      "title": "Growth Roadmap",
+      "theme_label": "Growth Roadmap",
+      "body": [
+        "This page summarizes the Growth Roadmap story in a review-ready slide format.",
+        "Reference sections: Company Overview, Core Capabilities. Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다. Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택…"
+      ],
+      "bullets": [
+        "Reference section: Company Overview",
+        "Reference section: Core Capabilities",
+        "Visual source: Company Overview"
+      ],
+      "image_note": "Suggested image: add a clean supporting visual that reinforces Test Customer's field and engineering credibility.",
+      "source_titles": [
+        "Company Overview",
+        "Core Capabilities"
+      ],
+      "layout_style": "split",
+      "visual_assets": [
+        {
+          "title": "Company Overview",
+          "summary": "Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존…",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "Visual sources prepared: 1 items from uploaded assets or archived references."
+    },
+    {
+      "page_number": 10,
+      "page_label": "Page 10",
+      "title": "Closing",
+      "theme_label": "Closing",
+      "body": [
+        "This page summarizes the Closing story in a review-ready slide format.",
+        "Reference sections: Company Overview, Core Capabilities. Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다. Test Customer 기준으로 'Core Capabilities' 섹션은 신규 생성이 필요합니다. 현재 선택…"
+      ],
+      "bullets": [
+        "Reference section: Company Overview",
+        "Reference section: Core Capabilities",
+        "Visual source: Company Overview"
+      ],
+      "image_note": "Suggested image: add a clean supporting visual that reinforces Test Customer's field and engineering credibility.",
+      "source_titles": [
+        "Company Overview",
+        "Core Capabilities"
+      ],
+      "layout_style": "split",
+      "visual_assets": [
+        {
+          "title": "Company Overview",
+          "summary": "Test Customer 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존…",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "Visual sources prepared: 1 items from uploaded assets or archived references."
     }
   ],
   "preview_meta": {
-    "language": "ko",
-    "language_label": "한국어",
-    "page_count": 8,
+    "language": "en",
+    "language_label": "English",
+    "page_count": 10,
     "audience": "general",
-    "request": "",
+    "request": "Create the latest company overview in English with 10 pages.",
     "revision_count": 0,
     "last_revision_round": 0,
     "presentation_style": "standard",
