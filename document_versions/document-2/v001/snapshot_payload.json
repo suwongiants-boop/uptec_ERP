@@ -194,6 +194,36 @@
       "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 1건, 보관 문서 0건."
     }
   ],
+  "prompt_requirements": [
+    {
+      "label": "언어",
+      "expected": "한국어",
+      "actual": "한국어",
+      "status": "applied",
+      "status_label": "반영"
+    },
+    {
+      "label": "페이지 수",
+      "expected": "5장",
+      "actual": "5장",
+      "status": "applied",
+      "status_label": "반영"
+    },
+    {
+      "label": "표현 방식",
+      "expected": "이미지 중심",
+      "actual": "이미지 중심",
+      "status": "applied",
+      "status_label": "반영"
+    },
+    {
+      "label": "핵심 키워드",
+      "expected": "이미지, 위주로",
+      "actual": "직접 반영된 키워드 없음",
+      "status": "partial",
+      "status_label": "부분 반영"
+    }
+  ],
   "preview_meta": {
     "language": "ko",
     "language_label": "한국어",
@@ -206,6 +236,7 @@
     "presentation_style_label": "이미지 중심",
     "source_document_count": 1,
     "reference_document_count": 0,
-    "revision_asset_count": 0
+    "revision_asset_count": 0,
+    "focus_term_count": 2
   }
 }
