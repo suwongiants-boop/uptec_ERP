@@ -1,0 +1,169 @@
+{
+  "generation_mode": "category_reference_generate",
+  "summary": {
+    "target_template": "표준 회사소개서",
+    "target_template_type": "회사소개서",
+    "source_document_count": 7,
+    "source_document_titles": [
+      "GitHub Sync Flow Check",
+      "Prompt Flow Check",
+      "회사 소개서",
+      "최신 회사 소개서",
+      "Runtime Blank Optional Check",
+      "업텍_국문_회사소개서_보강본",
+      "한국남부발전_회사소개서_초안"
+    ],
+    "reference_document_count": 3,
+    "reference_document_titles": [
+      "회사 소개서",
+      "회사 소개서 영문 2510",
+      "업텍 회사소개 발표자료"
+    ],
+    "reused_block_count": 3,
+    "generated_block_count": 0
+  },
+  "blocks": [
+    {
+      "title": "대표 실적",
+      "type": "text",
+      "tags": "reference,case",
+      "decision": "reuse",
+      "decision_label": "재사용",
+      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
+      "source_document": "GitHub Sync Flow Check",
+      "source_template": "표준 회사소개서",
+      "content": "지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다."
+    },
+    {
+      "title": "업텍 소개",
+      "type": "text",
+      "tags": "company,overview",
+      "decision": "reuse",
+      "decision_label": "재사용",
+      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
+      "source_document": "GitHub Sync Flow Check",
+      "source_template": "표준 회사소개서",
+      "content": "업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다."
+    },
+    {
+      "title": "핵심 역량",
+      "type": "text",
+      "tags": "capability,technology",
+      "decision": "reuse",
+      "decision_label": "재사용",
+      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
+      "source_document": "GitHub Sync Flow Check",
+      "source_template": "표준 회사소개서",
+      "content": "전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다."
+    }
+  ],
+  "generation_request": "Create a 5 page English overview.",
+  "preview_pages": [
+    {
+      "page_number": 1,
+      "page_label": "Page 1",
+      "title": "GitHub Auto Sync Check",
+      "theme_label": "Cover",
+      "body": [
+        "This is the HTML preview for the Uptec company overview, generated from the latest request and reference assets.",
+        "This draft pulls from approved content around 대표 실적, 업텍 소개. 지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다. 업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다."
+      ],
+      "bullets": [
+        "Reference topic: 대표 실적",
+        "Reference topic: 업텍 소개",
+        "Structured for review, revision, and final export"
+      ],
+      "image_note": "Suggested image: add a clean supporting visual for the 'Cover' page that reinforces Uptec's engineering and field-delivery credibility.",
+      "source_titles": [
+        "대표 실적",
+        "업텍 소개"
+      ]
+    },
+    {
+      "page_number": 2,
+      "page_label": "Page 2",
+      "title": "Executive Summary",
+      "theme_label": "Executive Summary",
+      "body": [
+        "This page reframes the overall message so a reviewer can understand the core value and narrative quickly.",
+        "This draft pulls from approved content around 업텍 소개, 핵심 역량. 업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다. 전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다."
+      ],
+      "bullets": [
+        "Reference topic: 업텍 소개",
+        "Reference topic: 핵심 역량",
+        "Structured for review, revision, and final export"
+      ],
+      "image_note": "Suggested image: add a clean supporting visual for the 'Executive Summary' page that reinforces Uptec's engineering and field-delivery credibility.",
+      "source_titles": [
+        "업텍 소개",
+        "핵심 역량"
+      ]
+    },
+    {
+      "page_number": 3,
+      "page_label": "Page 3",
+      "title": "Company Overview",
+      "theme_label": "Company Overview",
+      "body": [
+        "Uptec is positioned as a focused deep-tech team that explains power and infrastructure work in a structured way.",
+        "This draft pulls from approved content around 업텍 소개. 업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다."
+      ],
+      "bullets": [
+        "Reference topic: 업텍 소개",
+        "Structured for review, revision, and final export",
+        "Structured for review, revision, and final export"
+      ],
+      "image_note": "Suggested image: add a clean supporting visual for the 'Company Overview' page that reinforces Uptec's engineering and field-delivery credibility.",
+      "source_titles": [
+        "업텍 소개"
+      ]
+    },
+    {
+      "page_number": 4,
+      "page_label": "Page 4",
+      "title": "Core Capabilities",
+      "theme_label": "Core Capabilities",
+      "body": [
+        "The draft highlights capabilities across grid studies, DFOS-based monitoring, field execution, and documentation workflow.",
+        "This draft pulls from approved content around 핵심 역량. 전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다."
+      ],
+      "bullets": [
+        "Reference topic: 핵심 역량",
+        "Structured for review, revision, and final export",
+        "Structured for review, revision, and final export"
+      ],
+      "image_note": "Suggested image: add a clean supporting visual for the 'Core Capabilities' page that reinforces Uptec's engineering and field-delivery credibility.",
+      "source_titles": [
+        "핵심 역량"
+      ]
+    },
+    {
+      "page_number": 5,
+      "page_label": "Page 5",
+      "title": "Solution Portfolio",
+      "theme_label": "Solution Portfolio",
+      "body": [
+        "The solution portfolio is arranged so the reader can understand what the team delivers and how it fits the client need.",
+        "This draft pulls from approved content around 핵심 역량. 전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다."
+      ],
+      "bullets": [
+        "Reference topic: 핵심 역량",
+        "Structured for review, revision, and final export",
+        "Structured for review, revision, and final export"
+      ],
+      "image_note": "Suggested image: add a clean supporting visual for the 'Solution Portfolio' page that reinforces Uptec's engineering and field-delivery credibility.",
+      "source_titles": [
+        "핵심 역량"
+      ]
+    }
+  ],
+  "preview_meta": {
+    "language": "en",
+    "language_label": "English",
+    "page_count": 5,
+    "audience": "general",
+    "request": "Create a 5 page English overview.",
+    "revision_count": 0,
+    "last_revision_round": 0
+  }
+}
