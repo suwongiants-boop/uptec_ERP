@@ -1,46 +1,15 @@
 {
-  "generation_mode": "category_reference_generate",
-  "summary": {
-    "target_template": "Government Proposal",
-    "target_template_type": "정부과제 문서",
-    "source_document_count": 0,
-    "source_document_titles": [],
-    "reference_document_count": 1,
-    "reference_document_titles": [
-      "Legacy Government Proposal"
-    ],
-    "reused_block_count": 1,
-    "generated_block_count": 0
-  },
-  "source_documents": [],
-  "reference_documents": [
-    {
-      "id": 1,
-      "title": "Legacy Government Proposal",
-      "category": "government_proposal",
-      "category_label": "정부과제 문서",
-      "file_format": "pdf",
-      "file_format_label": "PDF",
-      "summary": "legacy summary",
-      "extracted_text": "legacy plan and market entry details",
-      "tags": "business,government",
-      "company_name": "Test Customer",
-      "opportunity_title": "",
-      "source_file_name": "reference_documents/legacy-plan_vzhpMVv.pdf",
-      "source_file_url": "/media/reference_documents/legacy-plan_vzhpMVv.pdf"
-    }
-  ],
+  "document_id": 1,
+  "title": "Manual Regen Document",
+  "template": "Manual Regen Template",
+  "company": "Test Customer",
+  "opportunity": "Test Proposal",
   "blocks": [
     {
-      "title": "Business Plan",
+      "title": "Company Overview",
       "type": "text",
-      "tags": "business,government",
-      "decision": "reuse",
-      "decision_label": "재사용",
-      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
-      "source_document": "Legacy Government Proposal",
-      "source_template": "정부과제 문서",
-      "content": "legacy plan and market entry details"
+      "content": "manual regen content",
+      "tags": "company,overview"
     }
   ],
   "generation_request": "",
@@ -48,242 +17,25 @@
     {
       "page_number": 1,
       "page_label": "1페이지",
-      "title": "Government Category Reference",
+      "title": "Manual Regen Document",
       "theme_label": "표지",
       "body": [
-        "Test Customer 정부과제 문서 초안입니다. 요청사항과 참조 자산을 반영한 HTML 미리보기입니다.",
-        "참조 섹션: Business Plan. legacy plan and market entry details"
+        "Test Customer 회사소개서 초안입니다. 요청사항과 참조 자산을 반영한 HTML 미리보기입니다.",
+        "참조 섹션: Company Overview. manual regen content"
       ],
       "bullets": [
-        "참조 섹션: Business Plan",
-        "활용 자산: Legacy Government Proposal"
+        "참조 섹션: Company Overview",
+        "활용 자산: Company Overview"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
-        "Business Plan"
+        "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Legacy Government Proposal",
-          "summary": "legacy summary",
-          "badge": "보관 문서",
-          "asset_type": "reference",
-          "file_url": "",
-          "file_format_label": "PDF"
-        }
-      ],
-      "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 1건."
-    },
-    {
-      "page_number": 2,
-      "page_label": "2페이지",
-      "title": "과제 필요성",
-      "theme_label": "과제 필요성",
-      "body": [
-        "이 페이지는 과제 필요성 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Business Plan. legacy plan and market entry details"
-      ],
-      "bullets": [
-        "참조 섹션: Business Plan",
-        "활용 자산: Legacy Government Proposal"
-      ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
-      "source_titles": [
-        "Business Plan"
-      ],
-      "layout_style": "split",
-      "visual_assets": [
-        {
-          "title": "Legacy Government Proposal",
-          "summary": "legacy summary",
-          "badge": "보관 문서",
-          "asset_type": "reference",
-          "file_url": "",
-          "file_format_label": "PDF"
-        }
-      ],
-      "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 1건."
-    },
-    {
-      "page_number": 3,
-      "page_label": "3페이지",
-      "title": "시장 및 적용처",
-      "theme_label": "시장 및 적용처",
-      "body": [
-        "이 페이지는 시장 및 적용처 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Business Plan. legacy plan and market entry details"
-      ],
-      "bullets": [
-        "참조 섹션: Business Plan",
-        "활용 자산: Legacy Government Proposal"
-      ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
-      "source_titles": [
-        "Business Plan"
-      ],
-      "layout_style": "split",
-      "visual_assets": [
-        {
-          "title": "Legacy Government Proposal",
-          "summary": "legacy summary",
-          "badge": "보관 문서",
-          "asset_type": "reference",
-          "file_url": "",
-          "file_format_label": "PDF"
-        }
-      ],
-      "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 1건."
-    },
-    {
-      "page_number": 4,
-      "page_label": "4페이지",
-      "title": "기술 개발 목표",
-      "theme_label": "기술 개발 목표",
-      "body": [
-        "이 페이지는 기술 개발 목표 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Business Plan. legacy plan and market entry details"
-      ],
-      "bullets": [
-        "참조 섹션: Business Plan",
-        "활용 자산: Legacy Government Proposal"
-      ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
-      "source_titles": [
-        "Business Plan"
-      ],
-      "layout_style": "split",
-      "visual_assets": [
-        {
-          "title": "Legacy Government Proposal",
-          "summary": "legacy summary",
-          "badge": "보관 문서",
-          "asset_type": "reference",
-          "file_url": "",
-          "file_format_label": "PDF"
-        }
-      ],
-      "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 1건."
-    },
-    {
-      "page_number": 5,
-      "page_label": "5페이지",
-      "title": "개발 계획",
-      "theme_label": "개발 계획",
-      "body": [
-        "이 페이지는 개발 계획 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Business Plan. legacy plan and market entry details"
-      ],
-      "bullets": [
-        "참조 섹션: Business Plan",
-        "활용 자산: Legacy Government Proposal"
-      ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
-      "source_titles": [
-        "Business Plan"
-      ],
-      "layout_style": "split",
-      "visual_assets": [
-        {
-          "title": "Legacy Government Proposal",
-          "summary": "legacy summary",
-          "badge": "보관 문서",
-          "asset_type": "reference",
-          "file_url": "",
-          "file_format_label": "PDF"
-        }
-      ],
-      "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 1건."
-    },
-    {
-      "page_number": 6,
-      "page_label": "6페이지",
-      "title": "검증 계획",
-      "theme_label": "검증 계획",
-      "body": [
-        "이 페이지는 검증 계획 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Business Plan. legacy plan and market entry details"
-      ],
-      "bullets": [
-        "참조 섹션: Business Plan",
-        "활용 자산: Legacy Government Proposal"
-      ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
-      "source_titles": [
-        "Business Plan"
-      ],
-      "layout_style": "split",
-      "visual_assets": [
-        {
-          "title": "Legacy Government Proposal",
-          "summary": "legacy summary",
-          "badge": "보관 문서",
-          "asset_type": "reference",
-          "file_url": "",
-          "file_format_label": "PDF"
-        }
-      ],
-      "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 1건."
-    },
-    {
-      "page_number": 7,
-      "page_label": "7페이지",
-      "title": "사업화 계획",
-      "theme_label": "사업화 계획",
-      "body": [
-        "이 페이지는 사업화 계획 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Business Plan. legacy plan and market entry details"
-      ],
-      "bullets": [
-        "참조 섹션: Business Plan",
-        "활용 자산: Legacy Government Proposal"
-      ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
-      "source_titles": [
-        "Business Plan"
-      ],
-      "layout_style": "split",
-      "visual_assets": [
-        {
-          "title": "Legacy Government Proposal",
-          "summary": "legacy summary",
-          "badge": "보관 문서",
-          "asset_type": "reference",
-          "file_url": "",
-          "file_format_label": "PDF"
-        }
-      ],
-      "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 1건."
-    },
-    {
-      "page_number": 8,
-      "page_label": "8페이지",
-      "title": "수행 조직",
-      "theme_label": "수행 조직",
-      "body": [
-        "이 페이지는 수행 조직 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Business Plan. legacy plan and market entry details"
-      ],
-      "bullets": [
-        "참조 섹션: Business Plan",
-        "활용 자산: Business Plan"
-      ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
-      "source_titles": [
-        "Business Plan"
-      ],
-      "layout_style": "split",
-      "visual_assets": [
-        {
-          "title": "Business Plan",
-          "summary": "legacy plan and market entry details",
+          "title": "Company Overview",
+          "summary": "manual regen content",
           "badge": "승인 블록",
           "asset_type": "block",
           "file_url": "",
@@ -291,69 +43,224 @@
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 1건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 0건."
     },
     {
-      "page_number": 9,
-      "page_label": "9페이지",
-      "title": "자원 계획",
-      "theme_label": "자원 계획",
+      "page_number": 2,
+      "page_label": "2페이지",
+      "title": "요약",
+      "theme_label": "요약",
       "body": [
-        "이 페이지는 자원 계획 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Business Plan. legacy plan and market entry details"
+        "이 페이지는 요약 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. manual regen content"
       ],
       "bullets": [
-        "참조 섹션: Business Plan",
-        "활용 자산: Legacy Government Proposal"
+        "참조 섹션: Company Overview",
+        "활용 자산: Company Overview"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
-        "Business Plan"
+        "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Legacy Government Proposal",
-          "summary": "legacy summary",
-          "badge": "보관 문서",
-          "asset_type": "reference",
+          "title": "Company Overview",
+          "summary": "manual regen content",
+          "badge": "승인 블록",
+          "asset_type": "block",
           "file_url": "",
-          "file_format_label": "PDF"
+          "file_format_label": "text"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 1건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 0건."
     },
     {
-      "page_number": 10,
-      "page_label": "10페이지",
-      "title": "마무리",
-      "theme_label": "마무리",
+      "page_number": 3,
+      "page_label": "3페이지",
+      "title": "회사 개요",
+      "theme_label": "회사 개요",
       "body": [
-        "이 페이지는 마무리 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Business Plan. legacy plan and market entry details"
+        "이 페이지는 회사 개요 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. manual regen content"
       ],
       "bullets": [
-        "참조 섹션: Business Plan",
-        "활용 자산: Legacy Government Proposal"
+        "참조 섹션: Company Overview",
+        "활용 자산: Company Overview"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
-        "Business Plan"
+        "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Legacy Government Proposal",
-          "summary": "legacy summary",
-          "badge": "보관 문서",
-          "asset_type": "reference",
+          "title": "Company Overview",
+          "summary": "manual regen content",
+          "badge": "승인 블록",
+          "asset_type": "block",
           "file_url": "",
-          "file_format_label": "PDF"
+          "file_format_label": "text"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 1건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 0건."
+    },
+    {
+      "page_number": 4,
+      "page_label": "4페이지",
+      "title": "핵심 역량",
+      "theme_label": "핵심 역량",
+      "body": [
+        "이 페이지는 핵심 역량 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. manual regen content"
+      ],
+      "bullets": [
+        "참조 섹션: Company Overview",
+        "활용 자산: Company Overview"
+      ],
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Company Overview"
+      ],
+      "layout_style": "split",
+      "visual_assets": [
+        {
+          "title": "Company Overview",
+          "summary": "manual regen content",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 0건."
+    },
+    {
+      "page_number": 5,
+      "page_label": "5페이지",
+      "title": "솔루션 구성",
+      "theme_label": "솔루션 구성",
+      "body": [
+        "이 페이지는 솔루션 구성 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. manual regen content"
+      ],
+      "bullets": [
+        "참조 섹션: Company Overview",
+        "활용 자산: Company Overview"
+      ],
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Company Overview"
+      ],
+      "layout_style": "split",
+      "visual_assets": [
+        {
+          "title": "Company Overview",
+          "summary": "manual regen content",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 0건."
+    },
+    {
+      "page_number": 6,
+      "page_label": "6페이지",
+      "title": "대표 실적",
+      "theme_label": "대표 실적",
+      "body": [
+        "이 페이지는 대표 실적 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. manual regen content"
+      ],
+      "bullets": [
+        "참조 섹션: Company Overview",
+        "활용 자산: Company Overview"
+      ],
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Company Overview"
+      ],
+      "layout_style": "split",
+      "visual_assets": [
+        {
+          "title": "Company Overview",
+          "summary": "manual regen content",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 0건."
+    },
+    {
+      "page_number": 7,
+      "page_label": "7페이지",
+      "title": "수행 방식",
+      "theme_label": "수행 방식",
+      "body": [
+        "이 페이지는 수행 방식 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. manual regen content"
+      ],
+      "bullets": [
+        "참조 섹션: Company Overview",
+        "활용 자산: Company Overview"
+      ],
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Company Overview"
+      ],
+      "layout_style": "split",
+      "visual_assets": [
+        {
+          "title": "Company Overview",
+          "summary": "manual regen content",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 0건."
+    },
+    {
+      "page_number": 8,
+      "page_label": "8페이지",
+      "title": "고객 가치",
+      "theme_label": "고객 가치",
+      "body": [
+        "이 페이지는 고객 가치 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. manual regen content"
+      ],
+      "bullets": [
+        "참조 섹션: Company Overview",
+        "활용 자산: Company Overview"
+      ],
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Company Overview"
+      ],
+      "layout_style": "split",
+      "visual_assets": [
+        {
+          "title": "Company Overview",
+          "summary": "manual regen content",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 0건."
     }
   ],
   "prompt_requirements": [
@@ -366,8 +273,8 @@
     },
     {
       "label": "페이지 수",
-      "expected": "10장",
-      "actual": "10장",
+      "expected": "8장",
+      "actual": "8장",
       "status": "applied",
       "status_label": "반영"
     }
@@ -375,7 +282,7 @@
   "preview_meta": {
     "language": "ko",
     "language_label": "한국어",
-    "page_count": 10,
+    "page_count": 8,
     "audience": "general",
     "request": "",
     "revision_count": 0,
@@ -383,7 +290,7 @@
     "presentation_style": "standard",
     "presentation_style_label": "텍스트+비주얼 혼합",
     "source_document_count": 0,
-    "reference_document_count": 1,
+    "reference_document_count": 0,
     "revision_asset_count": 0,
     "focus_term_count": 0
   }
