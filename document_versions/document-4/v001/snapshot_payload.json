@@ -58,7 +58,7 @@
       ],
       "bullets": [
         "참조 섹션: Shared Overview",
-        "활용 자산: Shared Overview"
+        "활용 자산: Sales Proposal Draft B"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
@@ -67,16 +67,16 @@
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Shared Overview",
-          "summary": "Sales Proposal B content",
-          "badge": "승인 블록",
-          "asset_type": "block",
+          "title": "Sales Proposal Draft B",
+          "summary": "Sales Proposal B · Test Customer · Test Proposal",
+          "badge": "기존 생성 문서",
+          "asset_type": "generated",
           "file_url": "",
-          "file_format_label": "text"
+          "file_format_label": "Sales Proposal B"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 2건, 보관 문서 0건."
     },
     {
       "page_number": 2,
@@ -89,7 +89,7 @@
       ],
       "bullets": [
         "참조 섹션: Shared Overview",
-        "활용 자산: Shared Overview"
+        "활용 자산: Sales Proposal Draft A"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
@@ -98,16 +98,16 @@
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Shared Overview",
-          "summary": "Sales Proposal B content",
-          "badge": "승인 블록",
-          "asset_type": "block",
+          "title": "Sales Proposal Draft A",
+          "summary": "Sales Proposal A · Test Customer · Test Proposal",
+          "badge": "기존 생성 문서",
+          "asset_type": "generated",
           "file_url": "",
-          "file_format_label": "text"
+          "file_format_label": "Sales Proposal A"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 2건, 보관 문서 0건."
     },
     {
       "page_number": 3,
@@ -120,7 +120,7 @@
       ],
       "bullets": [
         "참조 섹션: Shared Overview",
-        "활용 자산: Shared Overview"
+        "활용 자산: Sales Proposal Draft B"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
@@ -129,16 +129,16 @@
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Shared Overview",
-          "summary": "Sales Proposal B content",
-          "badge": "승인 블록",
-          "asset_type": "block",
+          "title": "Sales Proposal Draft B",
+          "summary": "Sales Proposal B · Test Customer · Test Proposal",
+          "badge": "기존 생성 문서",
+          "asset_type": "generated",
           "file_url": "",
-          "file_format_label": "text"
+          "file_format_label": "Sales Proposal B"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 2건, 보관 문서 0건."
     },
     {
       "page_number": 4,
@@ -151,7 +151,7 @@
       ],
       "bullets": [
         "참조 섹션: Shared Overview",
-        "활용 자산: Shared Overview"
+        "활용 자산: Sales Proposal Draft B"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
@@ -160,16 +160,16 @@
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Shared Overview",
-          "summary": "Sales Proposal B content",
-          "badge": "승인 블록",
-          "asset_type": "block",
+          "title": "Sales Proposal Draft B",
+          "summary": "Sales Proposal B · Test Customer · Test Proposal",
+          "badge": "기존 생성 문서",
+          "asset_type": "generated",
           "file_url": "",
-          "file_format_label": "text"
+          "file_format_label": "Sales Proposal B"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 2건, 보관 문서 0건."
     },
     {
       "page_number": 5,
@@ -182,7 +182,7 @@
       ],
       "bullets": [
         "참조 섹션: Shared Overview",
-        "활용 자산: Shared Overview"
+        "활용 자산: Sales Proposal Draft B"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
@@ -191,16 +191,16 @@
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Shared Overview",
-          "summary": "Sales Proposal B content",
-          "badge": "승인 블록",
-          "asset_type": "block",
+          "title": "Sales Proposal Draft B",
+          "summary": "Sales Proposal B · Test Customer · Test Proposal",
+          "badge": "기존 생성 문서",
+          "asset_type": "generated",
           "file_url": "",
-          "file_format_label": "text"
+          "file_format_label": "Sales Proposal B"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 2건, 보관 문서 0건."
     },
     {
       "page_number": 6,
@@ -213,7 +213,7 @@
       ],
       "bullets": [
         "참조 섹션: Shared Overview",
-        "활용 자산: Shared Overview"
+        "활용 자산: Sales Proposal Draft B"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
@@ -222,16 +222,16 @@
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Shared Overview",
-          "summary": "Sales Proposal B content",
-          "badge": "승인 블록",
-          "asset_type": "block",
+          "title": "Sales Proposal Draft B",
+          "summary": "Sales Proposal B · Test Customer · Test Proposal",
+          "badge": "기존 생성 문서",
+          "asset_type": "generated",
           "file_url": "",
-          "file_format_label": "text"
+          "file_format_label": "Sales Proposal B"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 2건, 보관 문서 0건."
     },
     {
       "page_number": 7,
@@ -244,7 +244,7 @@
       ],
       "bullets": [
         "참조 섹션: Shared Overview",
-        "활용 자산: Shared Overview"
+        "활용 자산: Sales Proposal Draft B"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
@@ -253,16 +253,16 @@
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Shared Overview",
-          "summary": "Sales Proposal B content",
-          "badge": "승인 블록",
-          "asset_type": "block",
+          "title": "Sales Proposal Draft B",
+          "summary": "Sales Proposal B · Test Customer · Test Proposal",
+          "badge": "기존 생성 문서",
+          "asset_type": "generated",
           "file_url": "",
-          "file_format_label": "text"
+          "file_format_label": "Sales Proposal B"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 2건, 보관 문서 0건."
     },
     {
       "page_number": 8,
@@ -275,7 +275,7 @@
       ],
       "bullets": [
         "참조 섹션: Shared Overview",
-        "활용 자산: Shared Overview"
+        "활용 자산: Sales Proposal Draft B"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
@@ -284,16 +284,16 @@
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Shared Overview",
-          "summary": "Sales Proposal B content",
-          "badge": "승인 블록",
-          "asset_type": "block",
+          "title": "Sales Proposal Draft B",
+          "summary": "Sales Proposal B · Test Customer · Test Proposal",
+          "badge": "기존 생성 문서",
+          "asset_type": "generated",
           "file_url": "",
-          "file_format_label": "text"
+          "file_format_label": "Sales Proposal B"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 2건, 보관 문서 0건."
     },
     {
       "page_number": 9,
@@ -306,7 +306,7 @@
       ],
       "bullets": [
         "참조 섹션: Shared Overview",
-        "활용 자산: Shared Overview"
+        "활용 자산: Sales Proposal Draft B"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
@@ -315,16 +315,16 @@
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Shared Overview",
-          "summary": "Sales Proposal B content",
-          "badge": "승인 블록",
-          "asset_type": "block",
+          "title": "Sales Proposal Draft B",
+          "summary": "Sales Proposal B · Test Customer · Test Proposal",
+          "badge": "기존 생성 문서",
+          "asset_type": "generated",
           "file_url": "",
-          "file_format_label": "text"
+          "file_format_label": "Sales Proposal B"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 2건, 보관 문서 0건."
     },
     {
       "page_number": 10,
@@ -337,7 +337,7 @@
       ],
       "bullets": [
         "참조 섹션: Shared Overview",
-        "활용 자산: Shared Overview"
+        "활용 자산: Sales Proposal Draft B"
       ],
       "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
       "source_titles": [
@@ -346,16 +346,16 @@
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Shared Overview",
-          "summary": "Sales Proposal B content",
-          "badge": "승인 블록",
-          "asset_type": "block",
+          "title": "Sales Proposal Draft B",
+          "summary": "Sales Proposal B · Test Customer · Test Proposal",
+          "badge": "기존 생성 문서",
+          "asset_type": "generated",
           "file_url": "",
-          "file_format_label": "text"
+          "file_format_label": "Sales Proposal B"
         }
       ],
       "is_visual": true,
-      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 2건, 보관 문서 0건."
     }
   ],
   "preview_meta": {
@@ -368,6 +368,7 @@
     "last_revision_round": 0,
     "presentation_style": "standard",
     "presentation_style_label": "텍스트+비주얼 혼합",
+    "source_document_count": 2,
     "reference_document_count": 0,
     "revision_asset_count": 0
   }
