@@ -1,0 +1,18 @@
+{
+  "document_id": 9,
+  "document_title": "최신 회사 소개서",
+  "version_number": 2,
+  "source_event": "revision_regeneration",
+  "note": "Revision round 2 applied to HTML preview",
+  "generation_request": "",
+  "created_at": "2026-04-14T07:16:24.043850+00:00",
+  "preview_meta": {
+    "language": "ko",
+    "language_label": "한국어",
+    "page_count": 8,
+    "audience": "general",
+    "request": "",
+    "revision_count": 2,
+    "last_revision_round": 2
+  }
+}
