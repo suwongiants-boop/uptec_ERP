@@ -1,0 +1,253 @@
+{
+  "generation_mode": "category_reference_generate",
+  "summary": {
+    "target_template": "표준 회사소개서",
+    "target_template_type": "회사소개서",
+    "source_document_count": 9,
+    "source_document_titles": [
+      "회사 소개서 영문",
+      "최신 회사 소개서",
+      "GitHub Auto Sync Check",
+      "GitHub Sync Flow Check",
+      "Prompt Flow Check",
+      "회사 소개서",
+      "Runtime Blank Optional Check",
+      "업텍_국문_회사소개서_보강본",
+      "한국남부발전_회사소개서_초안"
+    ],
+    "reference_document_count": 3,
+    "reference_document_titles": [
+      "회사 소개서",
+      "회사 소개서 영문 2510",
+      "업텍 회사소개 발표자료"
+    ],
+    "reused_block_count": 3,
+    "generated_block_count": 0
+  },
+  "blocks": [
+    {
+      "title": "대표 실적",
+      "type": "text",
+      "tags": "reference,case",
+      "decision": "reuse",
+      "decision_label": "재사용",
+      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
+      "source_document": "회사 소개서 영문",
+      "source_template": "표준 회사소개서",
+      "content": "지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다."
+    },
+    {
+      "title": "업텍 소개",
+      "type": "text",
+      "tags": "company,overview",
+      "decision": "reuse",
+      "decision_label": "재사용",
+      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
+      "source_document": "회사 소개서 영문",
+      "source_template": "표준 회사소개서",
+      "content": "업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다."
+    },
+    {
+      "title": "핵심 역량",
+      "type": "text",
+      "tags": "capability,technology",
+      "decision": "reuse",
+      "decision_label": "재사용",
+      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
+      "source_document": "회사 소개서 영문",
+      "source_template": "표준 회사소개서",
+      "content": "전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다."
+    }
+  ],
+  "generation_request": "기존 보관 문서 활용 이미지 위주로 5장 짜리 만들어줘",
+  "preview_pages": [
+    {
+      "page_number": 1,
+      "page_label": "1페이지",
+      "title": "최신소개서",
+      "theme_label": "표지",
+      "body": [
+        "Uptec 회사소개서 초안입니다. 요청사항과 참조 자산을 반영한 HTML 미리보기입니다.",
+        "참조 섹션: 대표 실적, 업텍 소개. 지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다. 업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다."
+      ],
+      "bullets": [
+        "참조 섹션: 대표 실적",
+        "참조 섹션: 업텍 소개",
+        "활용 자산: 대표 실적"
+      ],
+      "image_note": "추천 이미지: 보관 문서의 대표 장표나 현장 사진을 전면 배치해 Uptec의 엔지니어링 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "대표 실적",
+        "업텍 소개"
+      ],
+      "layout_style": "gallery",
+      "visual_assets": [
+        {
+          "title": "대표 실적",
+          "summary": "지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다.",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        },
+        {
+          "title": "업텍 소개",
+          "summary": "업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다.",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 2건, 전체 참조 문서 0건."
+    },
+    {
+      "page_number": 2,
+      "page_label": "2페이지",
+      "title": "회사 개요",
+      "theme_label": "회사 개요",
+      "body": [
+        "이 페이지는 회사 개요 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: 업텍 소개. 업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다."
+      ],
+      "bullets": [
+        "참조 섹션: 업텍 소개",
+        "활용 자산: 업텍 소개"
+      ],
+      "image_note": "추천 이미지: 보관 문서의 대표 장표나 현장 사진을 전면 배치해 Uptec의 엔지니어링 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "업텍 소개"
+      ],
+      "layout_style": "split",
+      "visual_assets": [
+        {
+          "title": "업텍 소개",
+          "summary": "업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다.",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+    },
+    {
+      "page_number": 3,
+      "page_label": "3페이지",
+      "title": "핵심 역량",
+      "theme_label": "핵심 역량",
+      "body": [
+        "이 페이지는 핵심 역량 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: 핵심 역량. 전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다."
+      ],
+      "bullets": [
+        "참조 섹션: 핵심 역량",
+        "활용 자산: 핵심 역량"
+      ],
+      "image_note": "추천 이미지: 보관 문서의 대표 장표나 현장 사진을 전면 배치해 Uptec의 엔지니어링 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "핵심 역량"
+      ],
+      "layout_style": "split",
+      "visual_assets": [
+        {
+          "title": "핵심 역량",
+          "summary": "전력계통 해석, DFOS 기반 감시, 실증 운영, 문서 자동화 역량을 보유하고 있습니다.",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+    },
+    {
+      "page_number": 4,
+      "page_label": "4페이지",
+      "title": "대표 실적",
+      "theme_label": "대표 실적",
+      "body": [
+        "이 페이지는 대표 실적 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: 대표 실적. 지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다."
+      ],
+      "bullets": [
+        "참조 섹션: 대표 실적",
+        "활용 자산: 대표 실적"
+      ],
+      "image_note": "추천 이미지: 보관 문서의 대표 장표나 현장 사진을 전면 배치해 Uptec의 엔지니어링 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "대표 실적"
+      ],
+      "layout_style": "gallery",
+      "visual_assets": [
+        {
+          "title": "대표 실적",
+          "summary": "지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다.",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 전체 참조 문서 0건."
+    },
+    {
+      "page_number": 5,
+      "page_label": "5페이지",
+      "title": "마무리",
+      "theme_label": "마무리",
+      "body": [
+        "이 페이지는 마무리 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: 대표 실적, 업텍 소개. 지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다. 업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다."
+      ],
+      "bullets": [
+        "참조 섹션: 대표 실적",
+        "참조 섹션: 업텍 소개",
+        "활용 자산: 대표 실적"
+      ],
+      "image_note": "추천 이미지: 보관 문서의 대표 장표나 현장 사진을 전면 배치해 Uptec의 엔지니어링 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "대표 실적",
+        "업텍 소개"
+      ],
+      "layout_style": "split",
+      "visual_assets": [
+        {
+          "title": "대표 실적",
+          "summary": "지중 인프라 광섬유 감시 실증 및 전력 인프라 안정화 제안 수행 경험을 보유하고 있습니다.",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        },
+        {
+          "title": "업텍 소개",
+          "summary": "업텍은 전력계통 해석과 인프라 안전 실증 역량을 결합해 고객 맞춤 문서를 빠르게 생성합니다.",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
+        }
+      ],
+      "is_visual": true,
+      "asset_summary": "시각 자산 준비: 현재 페이지용 자산 2건, 전체 참조 문서 0건."
+    }
+  ],
+  "preview_meta": {
+    "language": "ko",
+    "language_label": "한국어",
+    "page_count": 5,
+    "audience": "general",
+    "request": "기존 보관 문서 활용 이미지 위주로 5장 짜리 만들어줘",
+    "revision_count": 0,
+    "last_revision_round": 0,
+    "presentation_style": "visual",
+    "presentation_style_label": "이미지 중심",
+    "reference_document_count": 0,
+    "revision_asset_count": 0
+  }
+}
