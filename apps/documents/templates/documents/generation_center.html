@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}문서 생성 코너 | Uptec Document ERP{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2>문서 생성 코너</h2>
+    <div class="actions">
+        <a class="button soft" href="/documents/library/">기존 문서 보관소</a>
+        <a class="button" href="/documents/generated/">생성 문서 보기</a>
+        <a class="button soft" href="/admin/documents/documentblock/">문서 블록 관리</a>
+    </div>
+</div>
+
+<div class="two-col">
+    <div class="card">
+        <div class="section-header">
+            <h3>요청 기반 1차 생성 설정</h3>
+        </div>
+        <form method="post" class="stack">
+            {% csrf_token %}
+            <div class="form-grid">
+                <div class="field">
+                    <label for="title">문서명</label>
+                    <input id="title" name="title" value="{{ posted.title|default:'' }}" placeholder="예: 최신 회사 소개서">
+                </div>
+                <div class="field">
+                    <label for="template_id">문서 카테고리</label>
+                    <select id="template_id" name="template_id" required>
+                        <option value="">선택하세요</option>
+                        {% for item in template_options %}
+                        <option value="{{ item.id }}" {% if posted.template_id == item.id|stringformat:'s' %}selected{% endif %}>
+                            {{ item.template_type_display }} · {{ item.name }} · 생성 문서 {{ item.reference_count }}건 · 보관 문서 {{ item.library_count }}건
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="company_id">고객사</label>
+                    <select id="company_id" name="company_id">
+                        <option value="">선택 안 함</option>
+                        {% for company in companies %}
+                        <option value="{{ company.id }}" {% if posted.company_id == company.id|stringformat:'s' %}selected{% endif %}>{{ company.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="opportunity_id">영업기획</label>
+                    <select id="opportunity_id" name="opportunity_id">
+                        <option value="">선택 안 함</option>
+                        {% for opportunity in opportunities %}
+                        <option value="{{ opportunity.id }}" {% if posted.opportunity_id == opportunity.id|stringformat:'s' or selected_opportunity_id == opportunity.id|stringformat:'s' %}selected{% endif %}>
+                            {{ opportunity.title }} · {{ opportunity.company.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="generation_request">1차 생성 요청사항</label>
+                <textarea id="generation_request" name="generation_request" rows="6" placeholder="예: 최신 회사 소개서를 10page 형태로 영문으로 만들어줘. 전력 인프라, DFOS, 실증 역량을 강조하고 투자자도 이해하기 쉽게 정리해줘.">{{ posted.generation_request|default:'' }}</textarea>
+                <div class="hint">이 요청문이 바로 1차 HTML 초안에 반영됩니다. 페이지 수, 언어, 톤, 강조 포인트를 자연어로 적어주세요.</div>
+            </div>
+
+            <div class="actions">
+                <button class="button primary" type="submit" style="cursor:pointer;">1차 HTML 초안 생성</button>
+                <a class="button" href="/documents/generated/">기존 생성 문서 보기</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="card stack">
+        <div>
+            <h3 class="panel-title">생성 흐름</h3>
+            <div class="hint">
+                이 화면에서는 단순 블록 조합이 아니라, 요청문과 같은 카테고리의 기존 문서를 함께 참조해 바로 검토 가능한 HTML 미리보기를 생성합니다.
+                이후 상세 화면에서 텍스트/이미지 수정 요청을 넣으면 2차 HTML 미리보기가 다시 만들어지고, 최종 확정 후 PDF, PPT, Word로 출력할 수 있습니다.
+            </div>
+        </div>
+        <div class="list">
+            <div class="list-item">
+                <strong>1차 생성</strong>
+                <div class="muted" style="margin-top: 6px;">요청사항과 카테고리 참조 문서를 반영한 HTML 초안 생성</div>
+            </div>
+            <div class="list-item">
+                <strong>2차 수정</strong>
+                <div class="muted" style="margin-top: 6px;">텍스트 수정, 이미지 교체, 추가 이미지를 넣어 다시 HTML 미리보기 생성</div>
+            </div>
+            <div class="list-item">
+                <strong>최종 출력</strong>
+                <div class="muted" style="margin-top: 6px;">검토 완료 후 HTML, PDF, PPT, Word 파일로 바로 다운로드</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

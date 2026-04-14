@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{{ opportunity.title }} | Uptec Document ERP{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2>{{ opportunity.title }}</h2>
+    <div class="actions">
+        <a class="button" href="/crm/opportunities/">목록</a>
+        <a class="button soft" href="/admin/crm/opportunity/{{ opportunity.id }}/change/">수정</a>
+        <a class="button primary" href="/documents/generated/?opportunity={{ opportunity.id }}">관련 문서 보기</a>
+        <a class="button soft" href="/documents/generator/?opportunity={{ opportunity.id }}">카테고리 참조 생성</a>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="card stack">
+        <div>
+            <div class="muted">고객사</div>
+            <div><a href="/crm/companies/{{ opportunity.company.id }}/">{{ opportunity.company.name }}</a></div>
+        </div>
+        <div>
+            <div class="muted">단계</div>
+            <div><span class="badge">{{ opportunity.get_stage_display }}</span></div>
+        </div>
+        <div>
+            <div class="muted">성사 확률</div>
+            <div>{{ opportunity.probability }}%</div>
+        </div>
+        <div>
+            <div class="muted">예상 금액</div>
+            <div>{{ opportunity.expected_value|default:"-" }}</div>
+        </div>
+        <div>
+            <div class="muted">다음 액션</div>
+            <div>{{ opportunity.next_action|default:"-" }}</div>
+        </div>
+        <div>
+            <div class="muted">고객 니즈</div>
+            <div>{{ opportunity.customer_need|default:"-" }}</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>연결된 문서</h3>
+        <div class="list">
+            {% for document in opportunity.generated_documents.all %}
+            <div class="list-item">
+                <div><a href="/documents/generated/{{ document.id }}/"><strong>{{ document.title }}</strong></a></div>
+                <div class="muted">{{ document.template.name }}</div>
+            </div>
+            {% empty %}
+            <div class="empty">이 영업기회에 연결된 문서가 없습니다.</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

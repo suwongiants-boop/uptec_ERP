@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Uptec Document ERP{% endblock %}</title>
+    <style>
+        :root {
+            --bg: #f6f7fb;
+            --panel: #ffffff;
+            --line: #dde2ec;
+            --text: #152033;
+            --muted: #5b6880;
+            --brand: #0057a4;
+            --brand-soft: #dcecff;
+            --accent: #0f9d7a;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+            background: linear-gradient(180deg, #eef4fb 0%, var(--bg) 45%, #ffffff 100%);
+            color: var(--text);
+        }
+        header {
+            padding: 20px 28px;
+            border-bottom: 1px solid var(--line);
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+        }
+        .header-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .header-brand {
+            min-width: 0;
+        }
+        header h1 { margin: 0; font-size: 22px; }
+        header p { margin: 6px 0 0; color: var(--muted); }
+        .back-button {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid #cfe0f4;
+            background: #f5f9ff;
+            color: var(--brand);
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.15s ease, border-color 0.15s ease;
+        }
+        .back-button:hover {
+            background: var(--brand-soft);
+            border-color: #b8d2f4;
+        }
+        nav {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            background: #f5f9ff;
+            border: 1px solid #d8e4f4;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        nav a:hover {
+            background: var(--brand-soft);
+            color: var(--brand);
+        }
+        nav a.active {
+            background: var(--brand);
+            color: #fff;
+            border-color: var(--brand);
+        }
+        main {
+            padding: 28px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: 0 8px 24px rgba(30, 55, 90, 0.06);
+        }
+        .card h2 { margin-top: 0; font-size: 18px; }
+        .metric { font-size: 30px; font-weight: 700; margin-top: 8px; }
+        .muted { color: var(--muted); }
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 16px;
+        }
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .list-item {
+            padding: 14px;
+            border-radius: 14px;
+            background: #f9fbff;
+            border: 1px solid #e6edf7;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            color: var(--brand);
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .accent { color: var(--accent); font-weight: 600; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .section-header h2,
+        .section-header h3 {
+            margin: 0;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 12px;
+            padding: 10px 14px;
+            border: 1px solid var(--line);
+            color: var(--text);
+            background: #fff;
+            font-weight: 600;
+        }
+        .button.primary {
+            background: var(--brand);
+            color: #fff;
+            border-color: var(--brand);
+        }
+        .button.soft {
+            background: var(--brand-soft);
+            color: var(--brand);
+            border-color: #cfe2fb;
+        }
+        .button.ghost {
+            background: transparent;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e8edf5;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            color: var(--muted);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .empty {
+            padding: 24px;
+            border-radius: 14px;
+            background: #f9fbff;
+            border: 1px dashed #cfd9e8;
+            color: var(--muted);
+        }
+        .stack {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .stack.tight {
+            gap: 10px;
+        }
+        .code {
+            background: #f4f7fb;
+            border: 1px solid #dbe3ee;
+            border-radius: 14px;
+            padding: 14px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 13px;
+        }
+        .metric-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .metric-link:hover .card {
+            border-color: #b7c9e6;
+            transform: translateY(-1px);
+        }
+        .cards-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .field label {
+            font-weight: 600;
+        }
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 11px 12px;
+            border-radius: 12px;
+            border: 1px solid #d4deec;
+            background: #fff;
+            color: var(--text);
+            font: inherit;
+        }
+        .field select[multiple] {
+            min-height: 180px;
+        }
+        .panel-title {
+            margin: 0 0 6px;
+            font-size: 16px;
+        }
+        .decision {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .decision.reuse {
+            background: #daf3ea;
+            color: #157357;
+        }
+        .decision.generate {
+            background: #fff1d6;
+            color: #9a6700;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 16px;
+        }
+        .workspace {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 16px;
+        }
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: end;
+        }
+        .toolbar .field {
+            min-width: 180px;
+            flex: 1 1 180px;
+        }
+        .toolbar .field.compact {
+            flex: 0 1 180px;
+        }
+        .hint {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .message-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .message {
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: #eef6ff;
+            border: 1px solid #d6e7fb;
+        }
+        @media (max-width: 920px) {
+            .grid { grid-template-columns: 1fr; }
+            .cards-3,
+            .form-grid,
+            .two-col,
+            .workspace { grid-template-columns: 1fr; }
+            .header-top {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .back-button {
+                width: fit-content;
+            }
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-brand">
+                <h1>Uptec Document ERP</h1>
+                <p>영업, 기술 자산, 문서 생성이 하나의 데이터 구조로 연결되는 문서중심 ERP MVP</p>
+            </div>
+            <button class="back-button" type="button" onclick="goBackInApp()">
+                이전 페이지
+            </button>
+        </div>
+        <nav>
+            <a href="/">대시보드</a>
+            <a href="/crm/companies/">고객사</a>
+            <a href="/crm/opportunities/">영업기획</a>
+            <a href="/documents/library/">기존 문서 보관소</a>
+            <a href="/documents/generator/">문서 생성 코너</a>
+            <a href="/documents/generated/">생성 문서</a>
+            <a href="/documents/templates/">문서 템플릿</a>
+            <a href="/admin/">관리자</a>
+        </nav>
+    </header>
+    <main>
+        {% if messages %}
+        <div class="message-list">
+            {% for message in messages %}
+            <div class="message">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+    <script>
+        function goBackInApp() {
+            try {
+                if (document.referrer) {
+                    const referrer = new URL(document.referrer);
+                    if (referrer.origin === window.location.origin) {
+                        window.history.back();
+                        return;
+                    }
+                }
+            } catch (error) {
+            }
+            window.location.href = "/";
+        }
+    </script>
+    {% block extra_script %}{% endblock %}
+</body>
+</html>

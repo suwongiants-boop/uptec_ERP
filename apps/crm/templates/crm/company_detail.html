@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}{{ company.name }} | Uptec Document ERP{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2>{{ company.name }}</h2>
+    <div class="actions">
+        <a class="button" href="/crm/companies/">목록</a>
+        <a class="button soft" href="/admin/crm/company/{{ company.id }}/change/">수정</a>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="card stack">
+        <div>
+            <div class="muted">유형</div>
+            <div><strong>{{ company.get_company_type_display }}</strong></div>
+        </div>
+        <div>
+            <div class="muted">산업</div>
+            <div>{{ company.industry|default:"-" }}</div>
+        </div>
+        <div>
+            <div class="muted">웹사이트</div>
+            <div>
+                {% if company.website %}
+                <a href="{{ company.website }}" target="_blank" rel="noreferrer">{{ company.website }}</a>
+                {% else %}
+                -
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            <div class="muted">요약</div>
+            <div>{{ company.summary|default:"-" }}</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>관련 영업기획</h3>
+        <div class="list">
+            {% for opportunity in company.opportunities.all %}
+            <div class="list-item">
+                <div><a href="/crm/opportunities/{{ opportunity.id }}/"><strong>{{ opportunity.title }}</strong></a></div>
+                <div style="margin-top: 8px;">
+                    <span class="badge">{{ opportunity.get_stage_display }}</span>
+                    <span class="accent">확률 {{ opportunity.probability }}%</span>
+                </div>
+            </div>
+            {% empty %}
+            <div class="empty">연결된 영업기획이 없습니다.</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

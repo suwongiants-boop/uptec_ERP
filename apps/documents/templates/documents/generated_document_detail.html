@@ -1,0 +1,514 @@
+{% extends "base.html" %}
+
+{% block title %}{{ document.title }} | Uptec Document ERP{% endblock %}
+
+{% block extra_head %}
+<style>
+    .document-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.45fr) minmax(360px, 0.95fr);
+        gap: 18px;
+        align-items: start;
+    }
+    .preview-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+    .preview-page {
+        border: 1px solid #d9e4f2;
+        border-radius: 22px;
+        padding: 26px 28px;
+        background: #fff;
+        box-shadow: 0 16px 32px rgba(21, 32, 51, 0.07);
+    }
+    .preview-page h3 {
+        margin: 12px 0 14px;
+        font-size: 28px;
+    }
+    .preview-page p {
+        margin: 0 0 12px;
+        color: #23324a;
+        line-height: 1.8;
+        white-space: pre-line;
+    }
+    .preview-page ul {
+        margin: 14px 0 0 20px;
+        color: #23324a;
+        line-height: 1.75;
+    }
+    .page-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+    .page-top .badge {
+        flex-shrink: 0;
+    }
+    .image-note {
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: #f7fbff;
+        border: 1px dashed #bdd1eb;
+        color: #4b5970;
+    }
+    .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+    }
+    .revision-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .section-feedback {
+        border: 1px solid #e3ebf6;
+        border-radius: 16px;
+        padding: 16px;
+        background: #fbfdff;
+    }
+    .section-feedback h4 {
+        margin: 0 0 6px;
+        font-size: 15px;
+    }
+    .current-content {
+        margin-top: 10px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: #f4f8fd;
+        border: 1px solid #dbe6f3;
+        font-size: 14px;
+        color: #23324a;
+        line-height: 1.6;
+        white-space: pre-line;
+    }
+    .upload-zone {
+        position: relative;
+        border: 2px dashed #bdd1eb;
+        border-radius: 18px;
+        background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+        padding: 22px;
+        text-align: center;
+        transition: border-color 0.16s ease, background 0.16s ease;
+    }
+    .upload-zone.is-dragover {
+        border-color: var(--brand);
+        background: linear-gradient(180deg, #eef6ff 0%, #e2efff 100%);
+    }
+    .upload-zone input[type="file"] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+    .upload-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 12px;
+        margin-top: 12px;
+    }
+    .upload-preview {
+        border: 1px solid #d8e5f5;
+        border-radius: 16px;
+        background: #fff;
+        overflow: hidden;
+    }
+    .upload-preview img {
+        display: block;
+        width: 100%;
+        height: 92px;
+        object-fit: cover;
+        background: #eef4fb;
+    }
+    .upload-preview span {
+        display: block;
+        padding: 8px 10px 10px;
+        font-size: 12px;
+        color: var(--muted);
+        word-break: break-word;
+    }
+    .revision-history {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+    .history-assets {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+        margin-top: 12px;
+    }
+    .history-assets img {
+        width: 100%;
+        height: 96px;
+        object-fit: cover;
+        border-radius: 14px;
+        border: 1px solid #d9e4f2;
+        background: #f4f8fd;
+    }
+    @media (max-width: 980px) {
+        .document-layout {
+            grid-template-columns: 1fr;
+        }
+        .meta-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2>{{ document.title }}</h2>
+    <div class="actions">
+        <a class="button" href="/documents/generated/">목록</a>
+        <a class="button soft" href="/documents/generator/">문서 생성 코너</a>
+        <a class="button soft" href="/admin/documents/generateddocument/{{ document.id }}/change/">수정</a>
+        <form method="post" action="/documents/generated/{{ document.id }}/assemble/" style="display:inline;">
+            {% csrf_token %}
+            <button class="button primary" type="submit" style="cursor:pointer;">HTML 미리보기 재생성</button>
+        </form>
+    </div>
+</div>
+
+<div class="document-layout">
+    <div class="stack">
+        <div class="card">
+            <div class="section-header">
+                <div>
+                    <h3>요청 기반 HTML 미리보기</h3>
+                    <div class="hint">생성 요청과 수정 요청 이력을 반영한 현재 초안입니다. 맞으면 아래 출력 버튼으로 문서 파일을 받을 수 있습니다.</div>
+                </div>
+                <span class="badge">{{ document.get_status_display }}</span>
+            </div>
+
+            {% if generation_request %}
+            <div class="list-item" style="margin-bottom: 14px;">
+                <div class="muted">현재 생성 요청</div>
+                <div style="margin-top: 8px; line-height: 1.75;">{{ generation_request }}</div>
+            </div>
+            {% endif %}
+
+            {% if preview_meta %}
+            <div class="meta-grid" style="margin-bottom: 16px;">
+                <div class="list-item">
+                    <div class="muted">언어</div>
+                    <strong>{{ preview_meta.language_label }}</strong>
+                </div>
+                <div class="list-item">
+                    <div class="muted">페이지 수</div>
+                    <strong>{{ preview_meta.page_count }}</strong>
+                </div>
+                <div class="list-item">
+                    <div class="muted">수정 라운드</div>
+                    <strong>{{ preview_meta.revision_count }}</strong>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="actions" style="margin-bottom: 16px;">
+                <a class="button soft" href="/documents/generated/{{ document.id }}/export/html/">HTML 출력</a>
+                <a class="button soft" href="/documents/generated/{{ document.id }}/export/pdf/">PDF 출력</a>
+                <a class="button soft" href="/documents/generated/{{ document.id }}/export/pptx/">PPT 출력</a>
+                <a class="button soft" href="/documents/generated/{{ document.id }}/export/docx/">Word 출력</a>
+            </div>
+
+            {% if preview_pages %}
+            <div class="preview-stack">
+                {% for page in preview_pages %}
+                <article class="preview-page">
+                    <div class="page-top">
+                        <span class="badge">{{ page.page_label }}</span>
+                        <span class="muted">{{ page.theme_label }}</span>
+                    </div>
+                    <h3>{{ page.title }}</h3>
+                    {% for paragraph in page.body %}
+                    <p>{{ paragraph }}</p>
+                    {% endfor %}
+                    {% if page.bullets %}
+                    <ul>
+                        {% for bullet in page.bullets %}
+                        <li>{{ bullet }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if page.image_note %}
+                    <div class="image-note">{{ page.image_note }}</div>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty">아직 HTML 미리보기가 없습니다. 생성 코너에서 요청문을 입력해 초안을 먼저 만들어주세요.</div>
+            {% endif %}
+        </div>
+
+        {% if summary %}
+        <div class="card">
+            <div class="section-header">
+                <h3>생성 요약</h3>
+            </div>
+            <div class="meta-grid">
+                <div class="list-item">
+                    <div class="muted">대상 템플릿</div>
+                    <strong>{{ summary.target_template|default:document.template.name }}</strong>
+                </div>
+                <div class="list-item">
+                    <div class="muted">재사용 섹션</div>
+                    <strong>{{ summary.reused_block_count|default:"0" }}</strong>
+                </div>
+                <div class="list-item">
+                    <div class="muted">신규 생성 섹션</div>
+                    <strong>{{ summary.generated_block_count|default:"0" }}</strong>
+                </div>
+            </div>
+            {% if summary.source_document_titles %}
+            <div style="margin-top: 16px;">
+                <div class="muted">참조한 생성 문서</div>
+                <div style="margin-top: 8px;">
+                    {% for title in summary.source_document_titles %}
+                    <span class="badge">{{ title }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if summary.reference_document_titles %}
+            <div style="margin-top: 16px;">
+                <div class="muted">참조한 기존 문서</div>
+                <div style="margin-top: 8px;">
+                    {% for title in summary.reference_document_titles %}
+                    <span class="badge">{{ title }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="stack">
+        <div class="card">
+            <div class="section-header">
+                <div>
+                    <h3>2차 수정 요청</h3>
+                    <div class="hint">수정사항을 저장하면 현재 요청과 합쳐서 HTML 미리보기를 다시 만듭니다.</div>
+                </div>
+            </div>
+            <form class="revision-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if revision_form.non_field_errors %}
+                <div class="message">{{ revision_form.non_field_errors|join:", " }}</div>
+                {% endif %}
+
+                <div class="field">
+                    <label for="{{ revision_form.general_feedback.id_for_label }}">전체 요청사항</label>
+                    {{ revision_form.general_feedback }}
+                </div>
+                <div class="field">
+                    <label for="{{ revision_form.text_feedback.id_for_label }}">텍스트 수정 방향</label>
+                    {{ revision_form.text_feedback }}
+                </div>
+                <div class="field">
+                    <label for="{{ revision_form.image_feedback.id_for_label }}">이미지 수정 방향</label>
+                    {{ revision_form.image_feedback }}
+                </div>
+
+                {% if preview_blocks %}
+                <div class="stack tight">
+                    <div class="section-header" style="margin-bottom: 0;">
+                        <h3>섹션별 수정 요청</h3>
+                    </div>
+                    {% for block in preview_blocks %}
+                    <div class="section-feedback">
+                        <h4>{{ block.title }}</h4>
+                        <div class="muted">{{ block.type }}{% if block.tags %} · {{ block.tags }}{% endif %}</div>
+                        <div class="current-content">{{ block.content|default:"현재 입력된 내용이 없습니다." }}</div>
+                        <div class="field" style="margin-top: 12px;">
+                            <label for="id_block_feedback_{{ block.index }}">수정 요청 / 대체 문구</label>
+                            <textarea id="id_block_feedback_{{ block.index }}" name="block_feedback_{{ block.index }}" rows="4" placeholder="이 섹션에서 바꾸고 싶은 문구, 추가할 데이터, 강조 포인트를 적어주세요.">{{ block.feedback_value }}</textarea>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="field">
+                    <label>추가 이미지 업로드</label>
+                    <div class="upload-zone" data-upload-zone>
+                        {{ revision_form.additional_images }}
+                        <strong>이미지를 드래그해서 놓거나 클릭해서 선택하세요.</strong>
+                        <div class="hint">비주얼 보드, 현장 사진, 도표 이미지를 함께 올릴 수 있습니다.</div>
+                    </div>
+                    <div class="upload-list" data-upload-list></div>
+                </div>
+
+                <button class="button primary" type="submit">수정 반영 HTML 재생성</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <div class="section-header">
+                <h3>수정 요청 이력</h3>
+            </div>
+            {% if revision_requests %}
+            <div class="revision-history">
+                {% for revision in revision_requests %}
+                <div class="list-item">
+                    <div class="section-header">
+                        <div>
+                            <strong>{{ revision.request_round }}차 요청</strong>
+                            <div class="muted">{{ revision.created_at|date:"Y-m-d H:i" }}</div>
+                        </div>
+                        <span class="badge">{{ revision.get_status_display }}</span>
+                    </div>
+                    {% if revision.general_feedback %}
+                    <div style="margin-top: 10px;">
+                        <div class="muted">전체 요청사항</div>
+                        <div style="margin-top: 6px; line-height: 1.7;">{{ revision.general_feedback }}</div>
+                    </div>
+                    {% endif %}
+                    {% if revision.text_feedback %}
+                    <div style="margin-top: 10px;">
+                        <div class="muted">텍스트 수정 방향</div>
+                        <div style="margin-top: 6px; line-height: 1.7;">{{ revision.text_feedback }}</div>
+                    </div>
+                    {% endif %}
+                    {% if revision.image_feedback %}
+                    <div style="margin-top: 10px;">
+                        <div class="muted">이미지 수정 방향</div>
+                        <div style="margin-top: 6px; line-height: 1.7;">{{ revision.image_feedback }}</div>
+                    </div>
+                    {% endif %}
+                    {% if revision.block_feedback %}
+                    <div class="stack tight" style="margin-top: 12px;">
+                        {% for item in revision.block_feedback %}
+                        <div class="section-feedback">
+                            <strong>{{ item.title }}</strong>
+                            <div class="current-content">{{ item.requested_change }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if revision.assets.all %}
+                    <div class="history-assets">
+                        {% for asset in revision.assets.all %}
+                        <div>
+                            <img src="{{ asset.image_file.url }}" alt="{{ asset.original_name|default:'revision-image' }}">
+                            <div class="hint" style="margin-top: 6px;">{{ asset.original_name }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty">아직 저장된 수정 요청이 없습니다. 오른쪽 입력창에서 바로 2차 수정 요청을 남겨보세요.</div>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <div class="section-header">
+                <h3>버전 및 GitHub 연동</h3>
+            </div>
+            {% if version_snapshots %}
+            <div class="revision-history">
+                {% for version in version_snapshots %}
+                <div class="list-item">
+                    <div class="section-header">
+                        <div>
+                            <strong>v{{ version.version_number|stringformat:"03d" }}</strong>
+                            <div class="muted">{{ version.created_at|date:"Y-m-d H:i" }} · {{ version.get_source_event_display }}</div>
+                        </div>
+                        <span class="badge">{{ version.get_sync_status_display }}</span>
+                    </div>
+                    {% if version.note %}
+                    <div style="margin-top: 10px; line-height: 1.7;">{{ version.note }}</div>
+                    {% endif %}
+                    {% if version.sync_message %}
+                    <div class="current-content">{{ version.sync_message }}</div>
+                    {% endif %}
+                    {% if version.sync_commit_hash %}
+                    <div class="hint" style="margin-top: 8px;">Commit {{ version.sync_commit_hash }}</div>
+                    {% endif %}
+                    {% if version.sync_repo_path %}
+                    <div class="hint" style="margin-top: 6px;">저장 경로 {{ version.sync_repo_path }}</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty">아직 기록된 버전 스냅샷이 없습니다.</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_script %}
+<script>
+    (function () {
+        const uploadZone = document.querySelector("[data-upload-zone]");
+        const uploadInput = uploadZone ? uploadZone.querySelector("input[type='file']") : null;
+        const uploadList = document.querySelector("[data-upload-list]");
+
+        if (!uploadZone || !uploadInput || !uploadList) {
+            return;
+        }
+
+        const renderFiles = (files) => {
+            uploadList.innerHTML = "";
+            Array.from(files).forEach((file) => {
+                const item = document.createElement("div");
+                item.className = "upload-preview";
+
+                const image = document.createElement("img");
+                image.alt = file.name;
+
+                const label = document.createElement("span");
+                label.textContent = file.name;
+
+                if (file.type.startsWith("image/")) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        image.src = event.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+
+                item.appendChild(image);
+                item.appendChild(label);
+                uploadList.appendChild(item);
+            });
+        };
+
+        uploadInput.addEventListener("change", (event) => {
+            renderFiles(event.target.files);
+        });
+
+        ["dragenter", "dragover"].forEach((eventName) => {
+            uploadZone.addEventListener(eventName, (event) => {
+                event.preventDefault();
+                uploadZone.classList.add("is-dragover");
+            });
+        });
+
+        ["dragleave", "drop"].forEach((eventName) => {
+            uploadZone.addEventListener(eventName, (event) => {
+                event.preventDefault();
+                uploadZone.classList.remove("is-dragover");
+            });
+        });
+
+        uploadZone.addEventListener("drop", (event) => {
+            const transfer = new DataTransfer();
+            Array.from(event.dataTransfer.files).forEach((file) => transfer.items.add(file));
+            uploadInput.files = transfer.files;
+            renderFiles(uploadInput.files);
+        });
+    })();
+</script>
+{% endblock %}

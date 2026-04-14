@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}생성 문서 | Uptec Document ERP{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2>생성 문서</h2>
+    <div class="actions">
+        <a class="button primary" href="/documents/generator/">문서 생성 코너</a>
+        <a class="button soft" href="/admin/documents/generateddocument/add/">문서 생성건 등록</a>
+        <a class="button" href="/admin/documents/generateddocument/">관리자에서 관리</a>
+    </div>
+</div>
+
+<div class="card">
+    {% if documents %}
+    <table>
+        <thead>
+            <tr>
+                <th>문서명</th>
+                <th>템플릿</th>
+                <th>고객사</th>
+                <th>상태</th>
+                <th>작성자</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for document in documents %}
+            <tr>
+                <td><a href="/documents/generated/{{ document.id }}/"><strong>{{ document.title }}</strong></a></td>
+                <td>{{ document.template.name }}</td>
+                <td>{{ document.company.name|default:"-" }}</td>
+                <td>{{ document.get_status_display }}</td>
+                <td>{{ document.created_by.username|default:"-" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="empty">생성된 문서가 없습니다.</div>
+    {% endif %}
+</div>
+{% endblock %}

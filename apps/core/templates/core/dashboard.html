@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block title %}대시보드 | Uptec Document ERP{% endblock %}
+
+{% block content %}
+<section class="stats">
+    <a class="metric-link" href="/crm/companies/">
+        <div class="card">
+            <div class="muted">고객사</div>
+            <div class="metric">{{ stats.companies }}</div>
+        </div>
+    </a>
+    <a class="metric-link" href="/crm/opportunities/">
+        <div class="card">
+            <div class="muted">영업기획</div>
+            <div class="metric">{{ stats.opportunities }}</div>
+        </div>
+    </a>
+    <a class="metric-link" href="/admin/knowledge/technology/">
+        <div class="card">
+            <div class="muted">기술 자산</div>
+            <div class="metric">{{ stats.technologies }}</div>
+        </div>
+    </a>
+    <a class="metric-link" href="/admin/knowledge/reference/">
+        <div class="card">
+            <div class="muted">수행 실적</div>
+            <div class="metric">{{ stats.references }}</div>
+        </div>
+    </a>
+    <a class="metric-link" href="/admin/knowledge/patent/">
+        <div class="card">
+            <div class="muted">특허 / 인증</div>
+            <div class="metric">{{ stats.patents }} / {{ stats.certifications }}</div>
+        </div>
+    </a>
+    <a class="metric-link" href="/documents/generated/">
+        <div class="card">
+            <div class="muted">생성 문서</div>
+            <div class="metric">{{ stats.documents }}</div>
+        </div>
+    </a>
+</section>
+
+<section class="cards-3" style="margin-bottom: 16px;">
+    <div class="card">
+        <div class="section-header">
+            <h2>빠른 실행</h2>
+        </div>
+        <div class="actions">
+            <a class="button soft" href="/documents/library/">기존 문서 보관소</a>
+            <a class="button primary" href="/documents/generator/">문서 생성 코너</a>
+            <a class="button" href="/crm/opportunities/">영업기획 보기</a>
+            <a class="button" href="/admin/">관리자 열기</a>
+        </div>
+        <p class="hint" style="margin: 14px 0 0;">
+            먼저 기존 문서 보관소에 카테고리별 원본 문서를 등록하고, 문서 생성 코너에서 해당 카테고리의 생성 문서와 기존 문서를 자동 참조해 새 문서를 만들 수 있습니다.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="section-header">
+            <h2>문서 생성 방식</h2>
+        </div>
+        <div class="list">
+            <div class="list-item">1. 문서 카테고리 선택</div>
+            <div class="list-item">2. 생성 문서와 기존 문서 보관소 자동 참조</div>
+            <div class="list-item">3. 재사용 섹션과 신규 생성 섹션 확인</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-header">
+            <h2>관리 포인트</h2>
+        </div>
+        <div class="list">
+            <div class="list-item">승인된 블록이 많을수록 재사용률이 높아집니다.</div>
+            <div class="list-item">영업기획과 연결된 문서 흐름을 같이 관리하세요.</div>
+            <div class="list-item">템플릿별로 부족한 섹션을 별도 생성 대상으로 관리합니다.</div>
+        </div>
+    </div>
+</section>
+
+<section class="grid">
+    <div class="card">
+        <div class="section-header">
+            <h2>최근 영업기획</h2>
+            <a class="button ghost" href="/crm/opportunities/">전체 보기</a>
+        </div>
+        <div class="list">
+            {% for opportunity in recent_opportunities %}
+                <a class="metric-link" href="/crm/opportunities/{{ opportunity.id }}/">
+                    <div class="list-item">
+                        <div><strong>{{ opportunity.title }}</strong></div>
+                        <div class="muted">{{ opportunity.company.name }}</div>
+                        <div style="margin-top: 8px;">
+                            <span class="badge">{{ opportunity.get_stage_display }}</span>
+                            <span class="accent">확률 {{ opportunity.probability }}%</span>
+                        </div>
+                    </div>
+                </a>
+            {% empty %}
+                <div class="list-item muted">등록된 영업기획이 없습니다.</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-header">
+            <h2>문서 생성 현황</h2>
+            <a class="button ghost" href="/documents/generated/">전체 보기</a>
+        </div>
+        <div class="list">
+            {% for item in recent_documents %}
+                <a class="metric-link" href="/documents/generated/{{ item.id }}/">
+                    <div class="list-item">
+                        <div><strong>{{ item.title }}</strong></div>
+                        <div class="muted">{{ item.template.name }}</div>
+                        <div style="margin-top: 8px;">
+                            <span class="badge">{{ item.get_status_display }}</span>
+                        </div>
+                    </div>
+                </a>
+            {% empty %}
+                <div class="list-item muted">생성된 문서가 없습니다.</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="grid" style="margin-top: 16px;">
+    <div class="card">
+        <div class="section-header">
+            <h2>영업기획 단계 분포</h2>
+        </div>
+        <div class="list">
+            {% for stage in opportunity_stage_counts %}
+                <a class="metric-link" href="/crm/opportunities/">
+                    <div class="list-item">
+                        <strong>{{ stage.label }}</strong>
+                        <span class="accent" style="float: right;">{{ stage.total }}</span>
+                    </div>
+                </a>
+            {% empty %}
+                <div class="list-item muted">표시할 데이터가 없습니다.</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-header">
+            <h2>추천 동선</h2>
+        </div>
+        <div class="list">
+            <div class="list-item">
+                <strong>1. 관리자에서 데이터 입력</strong>
+                <div class="muted" style="margin-top: 6px;">고객사, 영업기획, 문서 템플릿, 문서 블록을 등록합니다.</div>
+            </div>
+            <div class="list-item">
+                <strong>2. 영업기획에서 연결 문서 확인</strong>
+                <div class="muted" style="margin-top: 6px;">고객 니즈와 현재 보유 문서를 함께 봅니다.</div>
+            </div>
+            <div class="list-item">
+                <strong>3. 문서 생성 코너에서 비교 생성</strong>
+                <div class="muted" style="margin-top: 6px;">선택한 카테고리의 생성 문서와 보관소의 기존 문서를 자동 참조해 재사용 가능한 섹션은 가져오고 없는 부분만 신규 생성합니다.</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

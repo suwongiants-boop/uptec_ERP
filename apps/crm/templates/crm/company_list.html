@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}고객사 | Uptec Document ERP{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2>고객사</h2>
+    <div class="actions">
+        <a class="button" href="/admin/crm/company/">관리자에서 관리</a>
+    </div>
+</div>
+
+<div class="workspace">
+    <div class="card stack">
+        <div class="section-header">
+            <h3>고객사 목록</h3>
+            <span class="badge">{{ companies|length }}건</span>
+        </div>
+
+        <form method="get" class="toolbar">
+            <div class="field">
+                <label for="q">검색</label>
+                <input id="q" name="q" value="{{ filters.q }}" placeholder="회사명, 산업, 요약 검색">
+            </div>
+            <div class="field compact">
+                <label for="company_type">유형</label>
+                <select id="company_type" name="company_type">
+                    <option value="">전체</option>
+                    {% for value, label in company_type_choices %}
+                    <option value="{{ value }}" {% if filters.company_type == value %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="field compact">
+                <label for="active">활성 상태</label>
+                <select id="active" name="active">
+                    <option value="">전체</option>
+                    <option value="true" {% if filters.active == "true" %}selected{% endif %}>활성</option>
+                    <option value="false" {% if filters.active == "false" %}selected{% endif %}>비활성</option>
+                </select>
+            </div>
+            <div class="actions">
+                <button class="button primary" type="submit" style="cursor:pointer;">필터 적용</button>
+                <a class="button" href="/crm/companies/">초기화</a>
+            </div>
+        </form>
+
+        {% if companies %}
+        <table>
+            <thead>
+                <tr>
+                    <th>회사명</th>
+                    <th>유형</th>
+                    <th>산업</th>
+                    <th>요약</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for company in companies %}
+                <tr>
+                    <td><a href="/crm/companies/{{ company.id }}/"><strong>{{ company.name }}</strong></a></td>
+                    <td>{{ company.get_company_type_display }}</td>
+                    <td>{{ company.industry|default:"-" }}</td>
+                    <td>{{ company.summary|default:"-"|truncatechars:90 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="empty">조건에 맞는 고객사가 없습니다.</div>
+        {% endif %}
+    </div>
+
+    <div class="card stack">
+        <div class="section-header">
+            <h3>고객사 등록</h3>
+        </div>
+        <form method="post" class="stack">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="field">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                <div class="hint" style="color:#b42318;">{{ field.errors|join:", " }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <div class="actions">
+                <button class="button primary" type="submit" style="cursor:pointer;">고객사 저장</button>
+                <a class="button soft" href="/documents/library/">기존 문서 보관소</a>
+            </div>
+        </form>
+        <div class="hint">
+            ERP 안에서 바로 고객사를 등록한 뒤, 영업기획과 문서 생성 흐름에 연결할 수 있습니다.
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,231 @@
+{
+  "generation_mode": "category_reference_generate",
+  "summary": {
+    "target_template": "Sales Proposal A",
+    "target_template_type": "영업 제안서",
+    "source_document_count": 2,
+    "source_document_titles": [
+      "Sales Proposal Draft B",
+      "Sales Proposal Draft A"
+    ],
+    "reference_document_count": 0,
+    "reference_document_titles": [],
+    "reused_block_count": 1,
+    "generated_block_count": 0
+  },
+  "blocks": [
+    {
+      "title": "Shared Overview",
+      "type": "text",
+      "tags": "company,overview",
+      "decision": "reuse",
+      "decision_label": "재사용",
+      "reason": "동일 제목 또는 유사 태그를 가진 기존 문서를 재사용합니다.",
+      "source_document": "Sales Proposal Draft B",
+      "source_template": "Sales Proposal B",
+      "content": "Sales Proposal B content"
+    }
+  ],
+  "generation_request": "",
+  "preview_pages": [
+    {
+      "page_number": 1,
+      "page_label": "1페이지",
+      "title": "Category Reference Result",
+      "theme_label": "표지",
+      "body": [
+        "Test Customer 제안서 초안입니다. 요청사항과 참조 자산을 반영한 HTML 미리보기입니다.",
+        "이 페이지는 Shared Overview 관련 승인 블록을 기준으로 정리했습니다. Sales Proposal B content"
+      ],
+      "bullets": [
+        "참조 섹션: Shared Overview",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '표지' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Shared Overview"
+      ]
+    },
+    {
+      "page_number": 2,
+      "page_label": "2페이지",
+      "title": "고객 니즈",
+      "theme_label": "고객 니즈",
+      "body": [
+        "고객이 겪는 운영 문제와 의사결정 지연 요인을 먼저 짚어주는 구조입니다.",
+        "이 페이지는 Shared Overview 관련 승인 블록을 기준으로 정리했습니다. Sales Proposal B content"
+      ],
+      "bullets": [
+        "참조 섹션: Shared Overview",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '고객 니즈' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Shared Overview"
+      ]
+    },
+    {
+      "page_number": 3,
+      "page_label": "3페이지",
+      "title": "문제 정의",
+      "theme_label": "문제 정의",
+      "body": [
+        "현재 방식의 한계와 개선이 필요한 포인트를 명확하게 설명하는 페이지입니다.",
+        "이 페이지는 Shared Overview 관련 승인 블록을 기준으로 정리했습니다. Sales Proposal B content"
+      ],
+      "bullets": [
+        "참조 섹션: Shared Overview",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '문제 정의' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Shared Overview"
+      ]
+    },
+    {
+      "page_number": 4,
+      "page_label": "4페이지",
+      "title": "제안 솔루션",
+      "theme_label": "제안 솔루션",
+      "body": [
+        "제안 솔루션의 핵심 구조와 기대 적용 방식을 요약했습니다.",
+        "이 페이지는 Shared Overview 관련 승인 블록을 기준으로 정리했습니다. Sales Proposal B content"
+      ],
+      "bullets": [
+        "참조 섹션: Shared Overview",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '제안 솔루션' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Shared Overview"
+      ]
+    },
+    {
+      "page_number": 5,
+      "page_label": "5페이지",
+      "title": "기술 구성",
+      "theme_label": "기술 구성",
+      "body": [
+        "기술 요소와 데이터 흐름이 한 번에 이해되도록 기술 구조를 정리했습니다.",
+        "이 페이지는 Shared Overview 관련 승인 블록을 기준으로 정리했습니다. Sales Proposal B content"
+      ],
+      "bullets": [
+        "참조 섹션: Shared Overview",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '기술 구성' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Shared Overview"
+      ]
+    },
+    {
+      "page_number": 6,
+      "page_label": "6페이지",
+      "title": "수행 방식",
+      "theme_label": "수행 방식",
+      "body": [
+        "분석, 설계, 실증, 보고까지 이어지는 실행 프로세스를 문서 흐름에 맞춰 정리했습니다.",
+        "이 페이지는 Shared Overview 관련 승인 블록을 기준으로 정리했습니다. Sales Proposal B content"
+      ],
+      "bullets": [
+        "참조 섹션: Shared Overview",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '수행 방식' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Shared Overview"
+      ]
+    },
+    {
+      "page_number": 7,
+      "page_label": "7페이지",
+      "title": "대표 실적",
+      "theme_label": "대표 실적",
+      "body": [
+        "대표 수행 사례와 참조 문서를 바탕으로 신뢰성을 보여주는 흐름으로 배치했습니다.",
+        "이 페이지는 Shared Overview 관련 승인 블록을 기준으로 정리했습니다. Sales Proposal B content"
+      ],
+      "bullets": [
+        "참조 섹션: Shared Overview",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '대표 실적' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Shared Overview"
+      ]
+    },
+    {
+      "page_number": 8,
+      "page_label": "8페이지",
+      "title": "기대 효과",
+      "theme_label": "기대 효과",
+      "body": [
+        "도입 시 기대할 수 있는 운영 및 사업 효과를 정리했습니다.",
+        "이 페이지는 Shared Overview 관련 승인 블록을 기준으로 정리했습니다. Sales Proposal B content"
+      ],
+      "bullets": [
+        "참조 섹션: Shared Overview",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '기대 효과' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Shared Overview"
+      ]
+    },
+    {
+      "page_number": 9,
+      "page_label": "9페이지",
+      "title": "추진 일정",
+      "theme_label": "추진 일정",
+      "body": [
+        "단계별 추진 계획과 검토 포인트를 요약했습니다.",
+        "이 페이지는 Shared Overview 관련 승인 블록을 기준으로 정리했습니다. Sales Proposal B content"
+      ],
+      "bullets": [
+        "참조 섹션: Shared Overview",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '추진 일정' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Shared Overview"
+      ]
+    },
+    {
+      "page_number": 10,
+      "page_label": "10페이지",
+      "title": "마무리",
+      "theme_label": "마무리",
+      "body": [
+        "문서 전체 메시지를 짧게 정리하고 다음 액션을 연결하는 마지막 페이지입니다.",
+        "이 페이지는 Shared Overview 관련 승인 블록을 기준으로 정리했습니다. Sales Proposal B content"
+      ],
+      "bullets": [
+        "참조 섹션: Shared Overview",
+        "HTML 검토 후 수정 반영을 위한 페이지",
+        "HTML 검토 후 수정 반영을 위한 페이지"
+      ],
+      "image_note": "추천 이미지: '마무리' 페이지에 맞는 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "source_titles": [
+        "Shared Overview"
+      ]
+    }
+  ],
+  "preview_meta": {
+    "language": "ko",
+    "language_label": "한국어",
+    "page_count": 10,
+    "audience": "general",
+    "request": "",
+    "revision_count": 0,
+    "last_revision_round": 0
+  }
+}

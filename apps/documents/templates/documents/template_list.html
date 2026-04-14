@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}문서 템플릿 | Uptec Document ERP{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2>문서 템플릿</h2>
+    <div class="actions">
+        <a class="button soft" href="/admin/documents/documenttemplate/add/">템플릿 등록</a>
+        <a class="button" href="/admin/documents/documenttemplate/">관리자에서 관리</a>
+    </div>
+</div>
+
+<div class="card">
+    {% if templates %}
+    <table>
+        <thead>
+            <tr>
+                <th>템플릿명</th>
+                <th>유형</th>
+                <th>설명</th>
+                <th>블록 수</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in templates %}
+            <tr>
+                <td><strong>{{ item.name }}</strong></td>
+                <td>{{ item.get_template_type_display }}</td>
+                <td>{{ item.description|default:"-"|truncatechars:90 }}</td>
+                <td>{{ item.blocks.count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="empty">등록된 문서 템플릿이 없습니다.</div>
+    {% endif %}
+</div>
+{% endblock %}
