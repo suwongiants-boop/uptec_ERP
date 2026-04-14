@@ -125,6 +125,42 @@
         font-size: 12px;
         font-weight: 700;
     }
+    .requirement-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    .requirement-card {
+        border: 1px solid #dbe6f4;
+        border-radius: 18px;
+        background: #f9fbff;
+        padding: 14px 16px;
+    }
+    .requirement-card strong {
+        display: block;
+        margin: 8px 0 6px;
+        font-size: 15px;
+    }
+    .status-pill {
+        display: inline-flex;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+    .status-pill.applied {
+        background: #e9f7ee;
+        color: #237b4b;
+    }
+    .status-pill.partial {
+        background: #fff5e7;
+        color: #ac6b10;
+    }
+    .status-pill.unmet {
+        background: #fdecec;
+        color: #bb3f3f;
+    }
     .meta-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -296,6 +332,19 @@
                     <div class="muted">추가 이미지</div>
                     <strong>{{ preview_meta.revision_asset_count|default:"0" }}</strong>
                 </div>
+            </div>
+            {% endif %}
+
+            {% if prompt_requirements %}
+            <div class="requirement-list">
+                {% for item in prompt_requirements %}
+                <div class="requirement-card">
+                    <span class="status-pill {{ item.status }}">{{ item.status_label|default:item.status }}</span>
+                    <strong>{{ item.label }}</strong>
+                    <div class="muted">요청: {{ item.expected }}</div>
+                    <div style="margin-top: 6px; line-height: 1.6;">결과: {{ item.actual }}</div>
+                </div>
+                {% endfor %}
             </div>
             {% endif %}
 

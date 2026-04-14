@@ -1,14 +1,14 @@
 {
   "document_id": 1,
-  "title": "Manual Regen Document",
-  "template": "Manual Regen Template",
+  "title": "Revision Target",
+  "template": "Revision Template",
   "company": "Test Customer",
   "opportunity": "Test Proposal",
   "blocks": [
     {
       "title": "Company Overview",
       "type": "text",
-      "content": "manual regen content",
+      "content": "initial overview",
       "tags": "company,overview"
     }
   ],
@@ -17,29 +17,29 @@
     {
       "page_number": 1,
       "page_label": "1페이지",
-      "title": "Manual Regen Document",
+      "title": "Revision Target",
       "theme_label": "표지",
       "body": [
         "Test Customer 회사소개서 초안입니다. 요청사항과 참조 자산을 반영한 HTML 미리보기입니다.",
-        "참조 섹션: Company Overview. manual regen content"
+        "Use a more concise company introduction."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "현재 검토 요청: Please make the second draft sharper."
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "image_note": "Replace the hero image and add one field photo.",
       "source_titles": [
         "Company Overview"
       ],
-      "layout_style": "split",
+      "layout_style": "gallery",
       "visual_assets": [
         {
-          "title": "Company Overview",
-          "summary": "manual regen content",
-          "badge": "승인 블록",
-          "asset_type": "block",
-          "file_url": "",
-          "file_format_label": "text"
+          "title": "revision-image.png",
+          "summary": "사용자 업로드 이미지",
+          "badge": "업로드 이미지",
+          "asset_type": "uploaded",
+          "file_url": "/media/document_revision_assets/revision-image_zGUTrJ3.png",
+          "file_format_label": "Image"
         }
       ],
       "is_visual": true,
@@ -48,29 +48,29 @@
     {
       "page_number": 2,
       "page_label": "2페이지",
-      "title": "요약",
-      "theme_label": "요약",
+      "title": "회사 개요",
+      "theme_label": "회사 개요",
       "body": [
-        "이 페이지는 요약 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. manual regen content"
+        "이 페이지는 회사 개요 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "Use a more concise company introduction."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "현재 검토 요청: Please make the second draft sharper."
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "image_note": "Replace the hero image and add one field photo.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Company Overview",
-          "summary": "manual regen content",
-          "badge": "승인 블록",
-          "asset_type": "block",
-          "file_url": "",
-          "file_format_label": "text"
+          "title": "revision-image.png",
+          "summary": "사용자 업로드 이미지",
+          "badge": "업로드 이미지",
+          "asset_type": "uploaded",
+          "file_url": "/media/document_revision_assets/revision-image_zGUTrJ3.png",
+          "file_format_label": "Image"
         }
       ],
       "is_visual": true,
@@ -79,29 +79,29 @@
     {
       "page_number": 3,
       "page_label": "3페이지",
-      "title": "회사 개요",
-      "theme_label": "회사 개요",
+      "title": "핵심 역량",
+      "theme_label": "핵심 역량",
       "body": [
-        "이 페이지는 회사 개요 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. manual regen content"
+        "이 페이지는 핵심 역량 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "Use a more concise company introduction."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "현재 검토 요청: Please make the second draft sharper."
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "image_note": "Replace the hero image and add one field photo.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Company Overview",
-          "summary": "manual regen content",
-          "badge": "승인 블록",
-          "asset_type": "block",
-          "file_url": "",
-          "file_format_label": "text"
+          "title": "revision-image.png",
+          "summary": "사용자 업로드 이미지",
+          "badge": "업로드 이미지",
+          "asset_type": "uploaded",
+          "file_url": "/media/document_revision_assets/revision-image_zGUTrJ3.png",
+          "file_format_label": "Image"
         }
       ],
       "is_visual": true,
@@ -110,29 +110,29 @@
     {
       "page_number": 4,
       "page_label": "4페이지",
-      "title": "핵심 역량",
-      "theme_label": "핵심 역량",
+      "title": "대표 실적",
+      "theme_label": "대표 실적",
       "body": [
-        "이 페이지는 핵심 역량 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. manual regen content"
+        "이 페이지는 대표 실적 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "Use a more concise company introduction."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "현재 검토 요청: Please make the second draft sharper."
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "image_note": "Replace the hero image and add one field photo.",
       "source_titles": [
         "Company Overview"
       ],
-      "layout_style": "split",
+      "layout_style": "gallery",
       "visual_assets": [
         {
-          "title": "Company Overview",
-          "summary": "manual regen content",
-          "badge": "승인 블록",
-          "asset_type": "block",
-          "file_url": "",
-          "file_format_label": "text"
+          "title": "revision-image.png",
+          "summary": "사용자 업로드 이미지",
+          "badge": "업로드 이미지",
+          "asset_type": "uploaded",
+          "file_url": "/media/document_revision_assets/revision-image_zGUTrJ3.png",
+          "file_format_label": "Image"
         }
       ],
       "is_visual": true,
@@ -141,29 +141,29 @@
     {
       "page_number": 5,
       "page_label": "5페이지",
-      "title": "솔루션 구성",
-      "theme_label": "솔루션 구성",
+      "title": "마무리",
+      "theme_label": "마무리",
       "body": [
-        "이 페이지는 솔루션 구성 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. manual regen content"
+        "이 페이지는 마무리 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "Use a more concise company introduction."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "현재 검토 요청: Please make the second draft sharper."
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "image_note": "Replace the hero image and add one field photo.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Company Overview",
-          "summary": "manual regen content",
-          "badge": "승인 블록",
-          "asset_type": "block",
-          "file_url": "",
-          "file_format_label": "text"
+          "title": "revision-image.png",
+          "summary": "사용자 업로드 이미지",
+          "badge": "업로드 이미지",
+          "asset_type": "uploaded",
+          "file_url": "/media/document_revision_assets/revision-image_zGUTrJ3.png",
+          "file_format_label": "Image"
         }
       ],
       "is_visual": true,
@@ -172,29 +172,29 @@
     {
       "page_number": 6,
       "page_label": "6페이지",
-      "title": "대표 실적",
-      "theme_label": "대표 실적",
+      "title": "부록",
+      "theme_label": "부록",
       "body": [
-        "이 페이지는 대표 실적 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. manual regen content"
+        "이 페이지는 부록 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "Use a more concise company introduction."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "현재 검토 요청: Please make the second draft sharper."
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "image_note": "Replace the hero image and add one field photo.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Company Overview",
-          "summary": "manual regen content",
-          "badge": "승인 블록",
-          "asset_type": "block",
-          "file_url": "",
-          "file_format_label": "text"
+          "title": "revision-image.png",
+          "summary": "사용자 업로드 이미지",
+          "badge": "업로드 이미지",
+          "asset_type": "uploaded",
+          "file_url": "/media/document_revision_assets/revision-image_zGUTrJ3.png",
+          "file_format_label": "Image"
         }
       ],
       "is_visual": true,
@@ -203,29 +203,29 @@
     {
       "page_number": 7,
       "page_label": "7페이지",
-      "title": "수행 방식",
-      "theme_label": "수행 방식",
+      "title": "부록",
+      "theme_label": "부록",
       "body": [
-        "이 페이지는 수행 방식 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. manual regen content"
+        "이 페이지는 부록 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "Use a more concise company introduction."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "현재 검토 요청: Please make the second draft sharper."
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "image_note": "Replace the hero image and add one field photo.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Company Overview",
-          "summary": "manual regen content",
-          "badge": "승인 블록",
-          "asset_type": "block",
-          "file_url": "",
-          "file_format_label": "text"
+          "title": "revision-image.png",
+          "summary": "사용자 업로드 이미지",
+          "badge": "업로드 이미지",
+          "asset_type": "uploaded",
+          "file_url": "/media/document_revision_assets/revision-image_zGUTrJ3.png",
+          "file_format_label": "Image"
         }
       ],
       "is_visual": true,
@@ -234,33 +234,56 @@
     {
       "page_number": 8,
       "page_label": "8페이지",
-      "title": "고객 가치",
-      "theme_label": "고객 가치",
+      "title": "부록",
+      "theme_label": "부록",
       "body": [
-        "이 페이지는 고객 가치 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "참조 섹션: Company Overview. manual regen content"
+        "이 페이지는 부록 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "Use a more concise company introduction."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "활용 자산: Company Overview"
+        "현재 검토 요청: Please make the second draft sharper."
       ],
-      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Test Customer의 신뢰감을 강화해주세요.",
+      "image_note": "Replace the hero image and add one field photo.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "Company Overview",
-          "summary": "manual regen content",
-          "badge": "승인 블록",
-          "asset_type": "block",
-          "file_url": "",
-          "file_format_label": "text"
+          "title": "revision-image.png",
+          "summary": "사용자 업로드 이미지",
+          "badge": "업로드 이미지",
+          "asset_type": "uploaded",
+          "file_url": "/media/document_revision_assets/revision-image_zGUTrJ3.png",
+          "file_format_label": "Image"
         }
       ],
       "is_visual": true,
       "asset_summary": "시각 자산 준비: 현재 페이지용 자산 1건, 기존 생성 문서 0건, 보관 문서 0건."
+    }
+  ],
+  "prompt_requirements": [
+    {
+      "label": "언어",
+      "expected": "한국어",
+      "actual": "한국어",
+      "status": "applied",
+      "status_label": "반영"
+    },
+    {
+      "label": "페이지 수",
+      "expected": "8장",
+      "actual": "8장",
+      "status": "applied",
+      "status_label": "반영"
+    },
+    {
+      "label": "표현 방식",
+      "expected": "이미지 중심",
+      "actual": "이미지 중심",
+      "status": "applied",
+      "status_label": "반영"
     }
   ],
   "preview_meta": {
@@ -269,12 +292,13 @@
     "page_count": 8,
     "audience": "general",
     "request": "",
-    "revision_count": 0,
-    "last_revision_round": 0,
-    "presentation_style": "standard",
-    "presentation_style_label": "텍스트+비주얼 혼합",
+    "revision_count": 1,
+    "last_revision_round": 1,
+    "presentation_style": "visual",
+    "presentation_style_label": "이미지 중심",
     "source_document_count": 0,
     "reference_document_count": 0,
-    "revision_asset_count": 0
+    "revision_asset_count": 1,
+    "focus_term_count": 0
   }
 }

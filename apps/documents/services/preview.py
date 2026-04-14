@@ -81,6 +81,11 @@ THEME_LABELS = {
 
 VISUAL_KEYWORDS = ["이미지", "비주얼", "사진", "갤러리", "브로셔", "슬라이드", "image", "visual", "photo", "gallery", "brochure", "slide"]
 LIBRARY_KEYWORDS = ["보관 문서", "기존 문서", "기존 보관 문서", "참조 문서", "legacy", "library", "reference document", "existing document"]
+PROMPT_STOPWORDS = {
+    "최신", "회사", "소개서", "문서", "자료", "작성", "만들어줘", "만들기", "위주", "활용", "기존", "보관", "영문",
+    "국문", "한국어", "페이지", "page", "pages", "latest", "company", "overview", "document", "use", "with", "make",
+    "please", "ppt", "pdf", "word", "html", "초안", "버전", "형태", "짜리", "정리", "기반", "요청",
+}
 
 
 @dataclass
@@ -91,6 +96,7 @@ class GenerationIntent:
     audience: str
     visual_priority: bool
     use_library_assets: bool
+    focus_terms: list[str]
 
     @property
     def language_label(self) -> str:
@@ -122,6 +128,12 @@ class DocumentPreviewBuilder:
             reference_documents,
             revision_assets,
         )
+        payload["prompt_requirements"] = self._build_prompt_requirements(
+            intent,
+            payload["preview_pages"],
+            source_documents,
+            reference_documents,
+        )
         payload["preview_meta"] = {
             "language": intent.language,
             "language_label": intent.language_label,
@@ -135,6 +147,7 @@ class DocumentPreviewBuilder:
             "source_document_count": len(source_documents),
             "reference_document_count": len(reference_documents),
             "revision_asset_count": len(revision_assets),
+            "focus_term_count": len(intent.focus_terms),
         }
         return payload
 
@@ -150,7 +163,8 @@ class DocumentPreviewBuilder:
         audience = "investor" if any(keyword in combined for keyword in ["investor", "투자", "ir"]) else "client" if any(keyword in combined for keyword in ["proposal", "client", "고객", "제안"]) else "general"
         visual_priority = any(keyword in combined for keyword in VISUAL_KEYWORDS)
         use_library_assets = bool(payload.get("reference_documents")) and any(keyword in combined for keyword in LIBRARY_KEYWORDS + VISUAL_KEYWORDS)
-        return GenerationIntent(generation_request, language, page_count, audience, visual_priority, use_library_assets)
+        focus_terms = self._extract_focus_terms(generation_request)
+        return GenerationIntent(generation_request, language, page_count, audience, visual_priority, use_library_assets, focus_terms)
 
     def _collect_revision_assets(self, revision_requests) -> list[dict]:
         items = []
@@ -172,7 +186,7 @@ class DocumentPreviewBuilder:
         theme_ids = self._select_themes(document.template.template_type, intent)
         pages = []
         for index, theme_id in enumerate(theme_ids, start=1):
-            matched_blocks = self._match_blocks(theme_id, blocks)
+            matched_blocks = self._match_blocks(theme_id, blocks, intent.focus_terms)
             visual_assets = self._select_visual_assets(
                 theme_id,
                 intent,
@@ -197,7 +211,7 @@ class DocumentPreviewBuilder:
                 "title": document.title if theme_id == "cover" else THEME_LABELS[intent.language].get(theme_id, theme_id.title()),
                 "theme_label": THEME_LABELS[intent.language].get(theme_id, THEME_LABELS[intent.language]["appendix"]),
                 "body": [item for item in body if item][: 2 if intent.visual_priority else 3],
-                "bullets": self._page_bullets(intent.language, company_name, matched_blocks, latest_general, visual_assets, theme_id),
+                "bullets": self._page_bullets(intent.language, company_name, matched_blocks, latest_general, visual_assets, theme_id, intent.focus_terms),
                 "image_note": latest_image or self._default_image_note(intent.language, company_name, intent.visual_priority),
                 "source_titles": [block.get("title", "") for block in matched_blocks[:3]],
                 "layout_style": "gallery" if intent.visual_priority and theme_id in {"cover", "references"} else "split" if intent.visual_priority or visual_assets else "text",
@@ -213,16 +227,17 @@ class DocumentPreviewBuilder:
             return base[: intent.page_count]
         return base + ["appendix"] * (intent.page_count - len(base))
 
-    def _match_blocks(self, theme_id: str, blocks: list[dict]) -> list[dict]:
+    def _match_blocks(self, theme_id: str, blocks: list[dict], focus_terms: list[str]) -> list[dict]:
         tags = THEME_TAGS.get(theme_id, set())
         if not tags:
-            return blocks[:2]
+            return self._sort_by_focus(blocks, focus_terms)[:2]
         matched = []
         for block in blocks:
             block_tags = {tag.strip().lower() for tag in (block.get("tags") or "").split(",") if tag.strip()}
             if block_tags.intersection(tags):
                 matched.append(block)
-        return matched or blocks[:2]
+        matched = matched or blocks[:2]
+        return self._sort_by_focus(matched, focus_terms)
 
     def _select_visual_assets(self, theme_id: str, intent: GenerationIntent, matched_blocks: list[dict], source_documents: list[dict], reference_documents: list[dict], revision_assets: list[dict], page_number: int) -> list[dict]:
         assets = []
@@ -285,7 +300,7 @@ class DocumentPreviewBuilder:
             return f"Reference sections: {titles}. {contents}" if contents else f"Reference sections: {titles}."
         return f"참조 섹션: {titles}. {contents}" if contents else f"참조 섹션: {titles}."
 
-    def _page_bullets(self, language: str, company_name: str, matched_blocks: list[dict], general_feedback: str, visual_assets: list[dict], theme_id: str) -> list[str]:
+    def _page_bullets(self, language: str, company_name: str, matched_blocks: list[dict], general_feedback: str, visual_assets: list[dict], theme_id: str, focus_terms: list[str]) -> list[str]:
         section_bullets = [block.get("title", "") for block in matched_blocks[:2] if block.get("title")]
         asset_bullet = visual_assets[0]["title"] if visual_assets else ""
         if language == "en":
@@ -294,6 +309,8 @@ class DocumentPreviewBuilder:
                 bullets = [f"Reference section: {item}" for item in section_bullets]
             if asset_bullet:
                 bullets.append(f"Visual source: {asset_bullet}")
+            elif focus_terms:
+                bullets.append(f"Prompt focus: {', '.join(focus_terms[:2])}")
             if general_feedback:
                 bullets[-1] = f"Reviewer direction: {self._truncate(general_feedback, 80)}"
             return bullets[:3]
@@ -302,6 +319,8 @@ class DocumentPreviewBuilder:
             bullets = [f"참조 섹션: {item}" for item in section_bullets]
         if asset_bullet:
             bullets.append(f"활용 자산: {asset_bullet}")
+        elif focus_terms:
+            bullets.append(f"요청 핵심: {', '.join(focus_terms[:2])}")
         if general_feedback:
             bullets[-1] = f"현재 검토 요청: {self._truncate(general_feedback, 80)}"
         return bullets[:3]
@@ -338,3 +357,104 @@ class DocumentPreviewBuilder:
     def _truncate(self, value: str, limit: int) -> str:
         value = re.sub(r"\s+", " ", (value or "").strip())
         return value if len(value) <= limit else value[: limit - 1].rstrip() + "…"
+
+    def _extract_focus_terms(self, prompt: str) -> list[str]:
+        tokens = re.findall(r"[A-Za-z][A-Za-z0-9+._/-]*|[가-힣]{2,}", prompt or "")
+        seen = []
+        for token in tokens:
+            normalized = token.lower()
+            if normalized in PROMPT_STOPWORDS:
+                continue
+            if normalized.isdigit():
+                continue
+            if normalized not in seen:
+                seen.append(normalized)
+        return seen[:5]
+
+    def _sort_by_focus(self, blocks: list[dict], focus_terms: list[str]) -> list[dict]:
+        if not focus_terms:
+            return blocks
+        return sorted(
+            blocks,
+            key=lambda block: self._focus_score(
+                " ".join(
+                    [
+                        block.get("title", ""),
+                        block.get("content", ""),
+                        block.get("tags", ""),
+                    ]
+                ),
+                focus_terms,
+            ),
+            reverse=True,
+        )
+
+    def _focus_score(self, text: str, focus_terms: list[str]) -> int:
+        normalized = (text or "").lower()
+        return sum(1 for term in focus_terms if term in normalized)
+
+    def _build_prompt_requirements(self, intent: GenerationIntent, preview_pages: list[dict], source_documents: list[dict], reference_documents: list[dict]) -> list[dict]:
+        requirements = [
+            {
+                "label": "언어",
+                "expected": intent.language_label,
+                "actual": intent.language_label,
+                "status": "applied",
+                "status_label": "반영",
+            },
+            {
+                "label": "페이지 수",
+                "expected": f"{intent.page_count}장",
+                "actual": f"{len(preview_pages)}장",
+                "status": "applied" if len(preview_pages) == intent.page_count else "partial",
+                "status_label": "반영" if len(preview_pages) == intent.page_count else "부분 반영",
+            },
+        ]
+        if intent.visual_priority:
+            requirements.append(
+                {
+                    "label": "표현 방식",
+                    "expected": "이미지 중심",
+                    "actual": "이미지 중심" if any(page.get("is_visual") for page in preview_pages) else "텍스트 중심",
+                    "status": "applied" if any(page.get("is_visual") for page in preview_pages) else "partial",
+                    "status_label": "반영" if any(page.get("is_visual") for page in preview_pages) else "부분 반영",
+                }
+            )
+        if intent.use_library_assets:
+            total_sources = len(reference_documents) + len(source_documents)
+            status = "applied" if total_sources else "unmet"
+            requirements.append(
+                {
+                    "label": "기존 자료 활용",
+                    "expected": "보관 문서 또는 기존 생성 문서 참조",
+                    "actual": f"보관 문서 {len(reference_documents)}건 / 기존 생성 문서 {len(source_documents)}건",
+                    "status": status,
+                    "status_label": "반영" if status == "applied" else "미반영",
+                }
+            )
+        if intent.focus_terms:
+            hits = self._focus_hits(preview_pages, intent.focus_terms)
+            status = "applied" if hits else "partial"
+            requirements.append(
+                {
+                    "label": "핵심 키워드",
+                    "expected": ", ".join(intent.focus_terms),
+                    "actual": ", ".join(hits) if hits else "직접 반영된 키워드 없음",
+                    "status": status,
+                    "status_label": "반영" if status == "applied" else "부분 반영",
+                }
+            )
+        return requirements
+
+    def _focus_hits(self, preview_pages: list[dict], focus_terms: list[str]) -> list[str]:
+        combined = " ".join(
+            [
+                " ".join(page.get("body", []))
+                + " "
+                + " ".join(page.get("bullets", []))
+                + " "
+                + " ".join(asset.get("title", "") + " " + asset.get("summary", "") for asset in page.get("visual_assets", []))
+                for page in preview_pages
+            ]
+        ).lower()
+        return [term for term in focus_terms if term in combined][:5]

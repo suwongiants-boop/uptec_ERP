@@ -261,6 +261,7 @@ class GeneratedDocumentDetailView(DetailView):
         context["summary"] = assembled.get("summary", {})
         context["blocks"] = assembled.get("blocks", [])
         context["generation_request"] = assembled.get("generation_request", "")
+        context["prompt_requirements"] = assembled.get("prompt_requirements", [])
         context["preview_pages"] = assembled.get("preview_pages", [])
         context["preview_meta"] = assembled.get("preview_meta", {})
         context["preview_blocks"] = self._block_feedback_rows(kwargs.get("block_feedback_values"))

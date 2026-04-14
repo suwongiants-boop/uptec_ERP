@@ -320,6 +320,7 @@ class DocumentAssemblerTests(TestCase):
         self.assertEqual(created.assembled_content["generation_request"], "Create the latest company overview in English with 10 pages.")
         self.assertEqual(created.assembled_content["preview_meta"]["language"], "en")
         self.assertEqual(created.assembled_content["preview_meta"]["page_count"], 10)
+        self.assertTrue(created.assembled_content["prompt_requirements"])
         self.assertEqual(len(created.assembled_content["preview_pages"]), 10)
         version = DocumentVersionSnapshot.objects.get(document=created, version_number=1)
         self.assertEqual(version.source_event, DocumentVersionSnapshot.SourceEvent.INITIAL_GENERATION)
@@ -378,6 +379,9 @@ class DocumentAssemblerTests(TestCase):
         created = GeneratedDocument.objects.get(title="Visual First Overview")
         self.assertEqual(created.assembled_content["preview_meta"]["presentation_style"], "visual")
         self.assertEqual(created.assembled_content["preview_meta"]["page_count"], 5)
+        self.assertTrue(
+            any(item["label"] == "표현 방식" and item["status"] == "applied" for item in created.assembled_content["prompt_requirements"])
+        )
         self.assertTrue(any(page["visual_assets"] for page in created.assembled_content["preview_pages"]))
         self.assertTrue(
             any(
