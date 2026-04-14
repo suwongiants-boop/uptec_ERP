@@ -387,6 +387,51 @@ class DocumentAssemblerTests(TestCase):
             )
         )
 
+    def test_manual_regeneration_rebuilds_category_reference_payload(self):
+        template = DocumentTemplate.objects.create(
+            name="Company Overview Regen",
+            template_type=DocumentTemplate.TemplateType.COMPANY_OVERVIEW,
+        )
+        DocumentBlock.objects.create(
+            template=template,
+            title="Company Overview",
+            block_type=DocumentBlock.BlockType.TEXT,
+            content="overview base",
+            approval_status=DocumentBlock.ApprovalStatus.APPROVED,
+            tags="company,overview",
+        )
+        source_document = GeneratedDocument.objects.create(
+            title="Earlier Company Overview",
+            template=template,
+            company=self.company,
+            opportunity=self.opportunity,
+            created_by=self.user,
+        )
+        source_document.assembled_content = DocumentAssembler().build_payload(source_document)
+        source_document.save(update_fields=["assembled_content"])
+
+        target_document = GeneratedDocument.objects.create(
+            title="Regen Target",
+            template=template,
+            company=self.company,
+            opportunity=self.opportunity,
+            created_by=self.user,
+        )
+        target_document.assembled_content = {
+            "generation_mode": "category_reference_generate",
+            "generation_request": "기존 보관 문서 활용 이미지 위주로 5장 짜리 만들어줘",
+            "blocks": [{"title": "Company Overview", "type": "text", "content": "stale payload", "tags": "company,overview"}],
+            "summary": {"source_document_count": 0},
+        }
+        target_document.save(update_fields=["assembled_content"])
+
+        response = self.client.post(f"/documents/generated/{target_document.id}/assemble/", follow=True)
+
+        self.assertEqual(response.status_code, 200)
+        target_document.refresh_from_db()
+        self.assertEqual(target_document.assembled_content["preview_meta"]["source_document_count"], 1)
+        self.assertTrue(target_document.assembled_content["preview_pages"][0]["visual_assets"])
+
     def test_generated_document_detail_saves_revision_request_and_images(self):
         template = DocumentTemplate.objects.create(
             name="Revision Template",

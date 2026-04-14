@@ -214,10 +214,34 @@ class GeneratedDocumentDetailView(DetailView):
 
         return revision_request
 
+    def _rebuild_payload_if_needed(self, payload):
+        if payload.get("generation_mode") != "category_reference_generate":
+            return payload
+
+        source_documents = list(
+            GeneratedDocument.objects.select_related("template", "company", "opportunity")
+            .filter(template__template_type=self.object.template.template_type)
+            .exclude(pk=self.object.pk)
+            .order_by("-updated_at")
+        )
+        reference_documents = list(
+            ReferenceDocument.objects.filter(category=self.object.template.template_type, is_active=True)
+            .select_related("company", "opportunity")
+            .order_by("-updated_at")
+        )
+        rebuilt = ComparisonDocumentGenerator().build_payload(
+            self.object,
+            source_documents,
+            reference_documents,
+        )
+        rebuilt["generation_request"] = payload.get("generation_request", "")
+        return rebuilt
+
     def _regenerate_preview(self):
         payload = self.object.assembled_content or {}
         if not payload.get("blocks"):
             payload = DocumentAssembler().build_payload(self.object)
+        payload = self._rebuild_payload_if_needed(payload)
 
         self.object.assembled_content = DocumentPreviewBuilder().enrich_payload(
             self.object,
@@ -320,6 +344,24 @@ class AssembleDocumentView(View):
         payload = document.assembled_content or {}
         if not payload.get("blocks"):
             payload = DocumentAssembler().build_payload(document)
+        elif payload.get("generation_mode") == "category_reference_generate":
+            source_documents = list(
+                GeneratedDocument.objects.select_related("template", "company", "opportunity")
+                .filter(template__template_type=document.template.template_type)
+                .exclude(pk=document.pk)
+                .order_by("-updated_at")
+            )
+            reference_documents = list(
+                ReferenceDocument.objects.filter(category=document.template.template_type, is_active=True)
+                .select_related("company", "opportunity")
+                .order_by("-updated_at")
+            )
+            payload = ComparisonDocumentGenerator().build_payload(
+                document,
+                source_documents,
+                reference_documents,
+            )
+            payload["generation_request"] = document.assembled_content.get("generation_request", "")
 
         document.assembled_content = DocumentPreviewBuilder().enrich_payload(
             document,
