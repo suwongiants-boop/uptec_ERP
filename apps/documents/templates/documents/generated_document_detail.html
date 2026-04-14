@@ -37,6 +37,9 @@
         color: #23324a;
         line-height: 1.75;
     }
+    .preview-page.visual-slide {
+        background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
     .page-top {
         display: flex;
         justify-content: space-between;
@@ -53,6 +56,74 @@
         background: #f7fbff;
         border: 1px dashed #bdd1eb;
         color: #4b5970;
+    }
+    .preview-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+        gap: 20px;
+        align-items: start;
+    }
+    .preview-layout.text-only {
+        grid-template-columns: 1fr;
+    }
+    .visual-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .visual-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 2px;
+    }
+    .asset-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+    }
+    .asset-card {
+        border: 1px solid #dbe6f4;
+        border-radius: 18px;
+        background: #f6faff;
+        overflow: hidden;
+        min-height: 172px;
+        display: flex;
+        flex-direction: column;
+    }
+    .asset-card img {
+        width: 100%;
+        height: 132px;
+        object-fit: cover;
+        background: #ebf2fb;
+    }
+    .asset-card-body {
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+    }
+    .asset-card-body strong {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    .asset-card-body p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #4b5970;
+    }
+    .asset-type {
+        display: inline-flex;
+        width: fit-content;
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: #e8f1ff;
+        color: #1e5eb0;
+        font-size: 12px;
+        font-weight: 700;
     }
     .meta-grid {
         display: grid;
@@ -156,6 +227,9 @@
         .meta-grid {
             grid-template-columns: 1fr;
         }
+        .preview-layout {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 {% endblock %}
@@ -206,6 +280,18 @@
                     <div class="muted">수정 라운드</div>
                     <strong>{{ preview_meta.revision_count }}</strong>
                 </div>
+                <div class="list-item">
+                    <div class="muted">표현 방식</div>
+                    <strong>{{ preview_meta.presentation_style_label|default:"텍스트+비주얼 혼합" }}</strong>
+                </div>
+                <div class="list-item">
+                    <div class="muted">참조 문서</div>
+                    <strong>{{ preview_meta.reference_document_count|default:"0" }}</strong>
+                </div>
+                <div class="list-item">
+                    <div class="muted">추가 이미지</div>
+                    <strong>{{ preview_meta.revision_asset_count|default:"0" }}</strong>
+                </div>
             </div>
             {% endif %}
 
@@ -219,25 +305,58 @@
             {% if preview_pages %}
             <div class="preview-stack">
                 {% for page in preview_pages %}
-                <article class="preview-page">
+                <article class="preview-page {% if page.is_visual %}visual-slide{% endif %}">
                     <div class="page-top">
                         <span class="badge">{{ page.page_label }}</span>
                         <span class="muted">{{ page.theme_label }}</span>
                     </div>
-                    <h3>{{ page.title }}</h3>
-                    {% for paragraph in page.body %}
-                    <p>{{ paragraph }}</p>
-                    {% endfor %}
-                    {% if page.bullets %}
-                    <ul>
-                        {% for bullet in page.bullets %}
-                        <li>{{ bullet }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                    {% if page.image_note %}
-                    <div class="image-note">{{ page.image_note }}</div>
-                    {% endif %}
+                    <div class="preview-layout {% if page.layout_style == 'text' %}text-only{% endif %}">
+                        <div>
+                            <h3>{{ page.title }}</h3>
+                            {% for paragraph in page.body %}
+                            <p>{{ paragraph }}</p>
+                            {% endfor %}
+                            {% if page.bullets %}
+                            <ul>
+                                {% for bullet in page.bullets %}
+                                <li>{{ bullet }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            {% if page.image_note %}
+                            <div class="image-note">{{ page.image_note }}</div>
+                            {% endif %}
+                        </div>
+                        {% if page.visual_assets %}
+                        <div class="visual-panel">
+                            <div class="visual-panel-header">
+                                <strong>참조 비주얼 보드</strong>
+                                {% if page.asset_summary %}
+                                <span class="muted">{{ page.asset_summary }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="asset-grid">
+                                {% for asset in page.visual_assets %}
+                                <div class="asset-card">
+                                    {% if asset.file_url %}
+                                    <img src="{{ asset.file_url }}" alt="{{ asset.title }}">
+                                    {% endif %}
+                                    <div class="asset-card-body">
+                                        <span class="asset-type">{{ asset.badge }}</span>
+                                        <strong>{{ asset.title }}</strong>
+                                        {% if asset.summary %}
+                                        <p>{{ asset.summary }}</p>
+                                        {% endif %}
+                                        {% if asset.file_format_label %}
+                                        <span class="muted">{{ asset.file_format_label }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
                 </article>
                 {% endfor %}
             </div>

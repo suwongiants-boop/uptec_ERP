@@ -99,6 +99,35 @@ class ComparisonDocumentGenerator:
                 "reused_block_count": reused_count,
                 "generated_block_count": generated_count,
             },
+            "source_documents": [
+                {
+                    "id": doc.id,
+                    "title": doc.title,
+                    "template_name": doc.template.name,
+                    "template_type": doc.template.template_type,
+                    "company_name": doc.company.name if doc.company else "",
+                    "opportunity_title": doc.opportunity.title if doc.opportunity else "",
+                }
+                for doc in source_documents
+            ],
+            "reference_documents": [
+                {
+                    "id": doc.id,
+                    "title": doc.title,
+                    "category": doc.category,
+                    "category_label": doc.get_category_display(),
+                    "file_format": doc.file_format,
+                    "file_format_label": doc.get_file_format_display(),
+                    "summary": doc.summary,
+                    "extracted_text": doc.extracted_text,
+                    "tags": doc.tags,
+                    "company_name": doc.company.name if doc.company else "",
+                    "opportunity_title": doc.opportunity.title if doc.opportunity else "",
+                    "source_file_name": doc.source_file.name if doc.source_file else "",
+                    "source_file_url": doc.source_file.url if doc.source_file else "",
+                }
+                for doc in reference_documents
+            ],
             "blocks": block_payloads,
         }
 

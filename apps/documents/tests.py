@@ -325,6 +325,68 @@ class DocumentAssemblerTests(TestCase):
         self.assertEqual(version.source_event, DocumentVersionSnapshot.SourceEvent.INITIAL_GENERATION)
         self.assertTrue(version.rendered_html)
 
+    def test_generation_center_builds_visual_preview_from_reference_documents(self):
+        template = DocumentTemplate.objects.create(
+            name="Visual Company Overview",
+            template_type=DocumentTemplate.TemplateType.COMPANY_OVERVIEW,
+        )
+        DocumentBlock.objects.create(
+            template=template,
+            title="Company Overview",
+            block_type=DocumentBlock.BlockType.TEXT,
+            content="base company overview",
+            approval_status=DocumentBlock.ApprovalStatus.APPROVED,
+            tags="company,overview",
+        )
+        DocumentBlock.objects.create(
+            template=template,
+            title="Representative References",
+            block_type=DocumentBlock.BlockType.TEXT,
+            content="base reference section",
+            approval_status=DocumentBlock.ApprovalStatus.APPROVED,
+            tags="reference,case",
+        )
+        reference_file = SimpleUploadedFile(
+            "visual-overview.pdf",
+            b"visual overview reference",
+            content_type="application/pdf",
+        )
+        ReferenceDocument.objects.create(
+            title="Legacy Visual Company Deck",
+            category=DocumentTemplate.TemplateType.COMPANY_OVERVIEW,
+            file_format=ReferenceDocument.FileFormat.PDF,
+            source_file=reference_file,
+            company=self.company,
+            summary="이미지 위주 회사소개 자료",
+            extracted_text="company, overview, reference, field image assets",
+            tags="company,overview,reference,case",
+        )
+
+        response = self.client.post(
+            "/documents/generator/",
+            {
+                "title": "Visual First Overview",
+                "template_id": str(template.id),
+                "generation_request": "기존 보관 문서 활용 이미지 위주로 5장 짜리 만들어줘",
+                "company_id": str(self.company.id),
+                "opportunity_id": "",
+            },
+            follow=True,
+        )
+
+        self.assertEqual(response.status_code, 200)
+        created = GeneratedDocument.objects.get(title="Visual First Overview")
+        self.assertEqual(created.assembled_content["preview_meta"]["presentation_style"], "visual")
+        self.assertEqual(created.assembled_content["preview_meta"]["page_count"], 5)
+        self.assertTrue(any(page["visual_assets"] for page in created.assembled_content["preview_pages"]))
+        self.assertTrue(
+            any(
+                asset["title"] == "Legacy Visual Company Deck"
+                for page in created.assembled_content["preview_pages"]
+                for asset in page["visual_assets"]
+            )
+        )
+
     def test_generated_document_detail_saves_revision_request_and_images(self):
         template = DocumentTemplate.objects.create(
             name="Revision Template",
