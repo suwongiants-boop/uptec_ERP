@@ -108,11 +108,20 @@ class GenerationIntent:
 class DocumentPreviewBuilder:
     def enrich_payload(self, document, payload: dict, generation_request: str = "", revision_requests=None) -> dict:
         revision_requests = list(revision_requests or [])
+        source_documents = list(payload.get("source_documents", []))
         reference_documents = list(payload.get("reference_documents", []))
         intent = self._parse_intent(document, payload, generation_request, revision_requests)
         revision_assets = self._collect_revision_assets(revision_requests)
         payload["generation_request"] = generation_request
-        payload["preview_pages"] = self._build_pages(document, payload, intent, revision_requests, reference_documents, revision_assets)
+        payload["preview_pages"] = self._build_pages(
+            document,
+            payload,
+            intent,
+            revision_requests,
+            source_documents,
+            reference_documents,
+            revision_assets,
+        )
         payload["preview_meta"] = {
             "language": intent.language,
             "language_label": intent.language_label,
@@ -123,6 +132,7 @@ class DocumentPreviewBuilder:
             "last_revision_round": revision_requests[0].request_round if revision_requests else 0,
             "presentation_style": intent.presentation_style,
             "presentation_style_label": intent.presentation_style_label,
+            "source_document_count": len(source_documents),
             "reference_document_count": len(reference_documents),
             "revision_asset_count": len(revision_assets),
         }
@@ -149,7 +159,7 @@ class DocumentPreviewBuilder:
                 items.append({"title": asset.original_name or "uploaded-image", "summary": asset.note or "사용자 업로드 이미지", "badge": "업로드 이미지", "asset_type": "uploaded", "file_url": asset.image_file.url if asset.image_file else "", "file_format_label": "Image"})
         return items
 
-    def _build_pages(self, document, payload: dict, intent: GenerationIntent, revision_requests, reference_documents: list[dict], revision_assets: list[dict]) -> list[dict]:
+    def _build_pages(self, document, payload: dict, intent: GenerationIntent, revision_requests, source_documents: list[dict], reference_documents: list[dict], revision_assets: list[dict]) -> list[dict]:
         blocks = payload.get("blocks", [])
         latest_general = revision_requests[0].general_feedback.strip() if revision_requests else ""
         latest_text = revision_requests[0].text_feedback.strip() if revision_requests else ""
@@ -163,7 +173,15 @@ class DocumentPreviewBuilder:
         pages = []
         for index, theme_id in enumerate(theme_ids, start=1):
             matched_blocks = self._match_blocks(theme_id, blocks)
-            visual_assets = self._select_visual_assets(theme_id, intent, matched_blocks, reference_documents, revision_assets, index)
+            visual_assets = self._select_visual_assets(
+                theme_id,
+                intent,
+                matched_blocks,
+                source_documents,
+                reference_documents,
+                revision_assets,
+                index,
+            )
             body = [self._theme_sentence(theme_id, intent.language, company_name, document.template.template_type)]
             override_text = next((block_overrides.get(block.get("title", "")) for block in matched_blocks if block_overrides.get(block.get("title", ""))), "")
             if override_text:
@@ -185,7 +203,7 @@ class DocumentPreviewBuilder:
                 "layout_style": "gallery" if intent.visual_priority and theme_id in {"cover", "references"} else "split" if intent.visual_priority or visual_assets else "text",
                 "visual_assets": visual_assets,
                 "is_visual": intent.visual_priority or bool(visual_assets),
-                "asset_summary": self._asset_summary(intent.language, visual_assets, reference_documents),
+                "asset_summary": self._asset_summary(intent.language, visual_assets, source_documents, reference_documents),
             })
         return pages
 
@@ -206,7 +224,7 @@ class DocumentPreviewBuilder:
                 matched.append(block)
         return matched or blocks[:2]
 
-    def _select_visual_assets(self, theme_id: str, intent: GenerationIntent, matched_blocks: list[dict], reference_documents: list[dict], revision_assets: list[dict], page_number: int) -> list[dict]:
+    def _select_visual_assets(self, theme_id: str, intent: GenerationIntent, matched_blocks: list[dict], source_documents: list[dict], reference_documents: list[dict], revision_assets: list[dict], page_number: int) -> list[dict]:
         assets = []
         if revision_assets:
             assets.extend(self._rotate(revision_assets, page_number - 1, 2 if intent.visual_priority else 1))
@@ -225,6 +243,16 @@ class DocumentPreviewBuilder:
                 })
         if reference_pool:
             assets.extend(self._rotate(reference_pool, page_number - 1, 3 if intent.visual_priority else 1))
+        source_pool = [{
+            "title": item.get("title") or "기존 생성 문서",
+            "summary": self._truncate(" · ".join(filter(None, [item.get("template_name") or "", item.get("company_name") or "", item.get("opportunity_title") or ""])), 120),
+            "badge": "기존 생성 문서",
+            "asset_type": "generated",
+            "file_url": "",
+            "file_format_label": item.get("template_name") or "",
+        } for item in source_documents]
+        if not reference_pool and source_pool:
+            assets.extend(self._rotate(source_pool, page_number - 1, 2 if intent.visual_priority else 1))
         if not assets:
             assets = [{
                 "title": block.get("title", "승인 블록"),
@@ -289,13 +317,13 @@ class DocumentPreviewBuilder:
             return ""
         return f"Reviewer note applied to this draft: {combined}" if language == "en" else f"현재 반영 요청 메모: {combined}"
 
-    def _asset_summary(self, language: str, visual_assets: list[dict], reference_documents: list[dict]) -> str:
+    def _asset_summary(self, language: str, visual_assets: list[dict], source_documents: list[dict], reference_documents: list[dict]) -> str:
         if not visual_assets:
             return ""
         return (
-            f"Visual sources prepared: {len(visual_assets)} items from uploaded assets or archived references."
+            f"Visual sources prepared: {len(visual_assets)} items from uploaded assets, archived references, or earlier generated documents."
             if language == "en"
-            else f"시각 자산 준비: 현재 페이지용 자산 {len(visual_assets)}건, 전체 참조 문서 {len(reference_documents)}건."
+            else f"시각 자산 준비: 현재 페이지용 자산 {len(visual_assets)}건, 기존 생성 문서 {len(source_documents)}건, 보관 문서 {len(reference_documents)}건."
         )
 
     def _page_label(self, language: str, page_number: int) -> str:

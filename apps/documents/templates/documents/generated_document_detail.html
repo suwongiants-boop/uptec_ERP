@@ -285,6 +285,10 @@
                     <strong>{{ preview_meta.presentation_style_label|default:"텍스트+비주얼 혼합" }}</strong>
                 </div>
                 <div class="list-item">
+                    <div class="muted">기존 생성 문서</div>
+                    <strong>{{ preview_meta.source_document_count|default:"0" }}</strong>
+                </div>
+                <div class="list-item">
                     <div class="muted">참조 문서</div>
                     <strong>{{ preview_meta.reference_document_count|default:"0" }}</strong>
                 </div>
