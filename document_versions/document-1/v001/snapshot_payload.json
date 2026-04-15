@@ -1,15 +1,28 @@
 {
-  "document_id": 1,
-  "title": "Revision Target",
-  "template": "Revision Template",
-  "company": "Test Customer",
-  "opportunity": "Test Proposal",
+  "generation_mode": "category_reference_generate",
+  "summary": {
+    "target_template": "Blank Optional Fields",
+    "target_template_type": "회사소개서",
+    "source_document_count": 0,
+    "source_document_titles": [],
+    "reference_document_count": 0,
+    "reference_document_titles": [],
+    "reused_block_count": 0,
+    "generated_block_count": 1
+  },
+  "source_documents": [],
+  "reference_documents": [],
   "blocks": [
     {
       "title": "Company Overview",
       "type": "text",
-      "content": "initial overview",
-      "tags": "company,overview"
+      "tags": "company,overview",
+      "decision": "generate",
+      "decision_label": "신규 생성",
+      "reason": "재사용 가능한 동일 섹션이 없어 새로 작성해야 합니다.",
+      "source_document": "",
+      "source_template": "",
+      "content": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
     }
   ],
   "generation_request": "",
@@ -17,29 +30,29 @@
     {
       "page_number": 1,
       "page_label": "1페이지",
-      "title": "Revision Target",
+      "title": "Blank Optional Generation",
       "theme_label": "표지",
       "body": [
-        "Test Customer 회사소개서 초안입니다. 요청사항과 참조 자산을 반영한 HTML 미리보기입니다.",
-        "Use a more concise company introduction."
+        "Uptec 회사소개서 초안입니다. 요청사항과 참조 자산을 반영한 HTML 미리보기입니다.",
+        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "현재 검토 요청: Please make the second draft sharper."
+        "활용 자산: Company Overview"
       ],
-      "image_note": "Replace the hero image and add one field photo.",
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
       "source_titles": [
         "Company Overview"
       ],
-      "layout_style": "gallery",
+      "layout_style": "split",
       "visual_assets": [
         {
-          "title": "revision-image.png",
-          "summary": "사용자 업로드 이미지",
-          "badge": "업로드 이미지",
-          "asset_type": "uploaded",
-          "file_url": "/media/document_revision_assets/revision-image_AyXSoDp.png",
-          "file_format_label": "Image"
+          "title": "Company Overview",
+          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
         }
       ],
       "is_visual": true,
@@ -48,29 +61,29 @@
     {
       "page_number": 2,
       "page_label": "2페이지",
-      "title": "회사 개요",
-      "theme_label": "회사 개요",
+      "title": "요약",
+      "theme_label": "요약",
       "body": [
-        "이 페이지는 회사 개요 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "Use a more concise company introduction."
+        "이 페이지는 요약 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "현재 검토 요청: Please make the second draft sharper."
+        "활용 자산: Company Overview"
       ],
-      "image_note": "Replace the hero image and add one field photo.",
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "revision-image.png",
-          "summary": "사용자 업로드 이미지",
-          "badge": "업로드 이미지",
-          "asset_type": "uploaded",
-          "file_url": "/media/document_revision_assets/revision-image_AyXSoDp.png",
-          "file_format_label": "Image"
+          "title": "Company Overview",
+          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
         }
       ],
       "is_visual": true,
@@ -79,29 +92,29 @@
     {
       "page_number": 3,
       "page_label": "3페이지",
-      "title": "핵심 역량",
-      "theme_label": "핵심 역량",
+      "title": "회사 개요",
+      "theme_label": "회사 개요",
       "body": [
-        "이 페이지는 핵심 역량 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "Use a more concise company introduction."
+        "이 페이지는 회사 개요 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "현재 검토 요청: Please make the second draft sharper."
+        "활용 자산: Company Overview"
       ],
-      "image_note": "Replace the hero image and add one field photo.",
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "revision-image.png",
-          "summary": "사용자 업로드 이미지",
-          "badge": "업로드 이미지",
-          "asset_type": "uploaded",
-          "file_url": "/media/document_revision_assets/revision-image_AyXSoDp.png",
-          "file_format_label": "Image"
+          "title": "Company Overview",
+          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
         }
       ],
       "is_visual": true,
@@ -110,29 +123,29 @@
     {
       "page_number": 4,
       "page_label": "4페이지",
-      "title": "대표 실적",
-      "theme_label": "대표 실적",
+      "title": "핵심 역량",
+      "theme_label": "핵심 역량",
       "body": [
-        "이 페이지는 대표 실적 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "Use a more concise company introduction."
+        "이 페이지는 핵심 역량 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "현재 검토 요청: Please make the second draft sharper."
+        "활용 자산: Company Overview"
       ],
-      "image_note": "Replace the hero image and add one field photo.",
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
       "source_titles": [
         "Company Overview"
       ],
-      "layout_style": "gallery",
+      "layout_style": "split",
       "visual_assets": [
         {
-          "title": "revision-image.png",
-          "summary": "사용자 업로드 이미지",
-          "badge": "업로드 이미지",
-          "asset_type": "uploaded",
-          "file_url": "/media/document_revision_assets/revision-image_AyXSoDp.png",
-          "file_format_label": "Image"
+          "title": "Company Overview",
+          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
         }
       ],
       "is_visual": true,
@@ -141,29 +154,29 @@
     {
       "page_number": 5,
       "page_label": "5페이지",
-      "title": "마무리",
-      "theme_label": "마무리",
+      "title": "솔루션 구성",
+      "theme_label": "솔루션 구성",
       "body": [
-        "이 페이지는 마무리 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "Use a more concise company introduction."
+        "이 페이지는 솔루션 구성 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "현재 검토 요청: Please make the second draft sharper."
+        "활용 자산: Company Overview"
       ],
-      "image_note": "Replace the hero image and add one field photo.",
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "revision-image.png",
-          "summary": "사용자 업로드 이미지",
-          "badge": "업로드 이미지",
-          "asset_type": "uploaded",
-          "file_url": "/media/document_revision_assets/revision-image_AyXSoDp.png",
-          "file_format_label": "Image"
+          "title": "Company Overview",
+          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
         }
       ],
       "is_visual": true,
@@ -172,29 +185,29 @@
     {
       "page_number": 6,
       "page_label": "6페이지",
-      "title": "부록",
-      "theme_label": "부록",
+      "title": "대표 실적",
+      "theme_label": "대표 실적",
       "body": [
-        "이 페이지는 부록 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "Use a more concise company introduction."
+        "이 페이지는 대표 실적 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "현재 검토 요청: Please make the second draft sharper."
+        "활용 자산: Company Overview"
       ],
-      "image_note": "Replace the hero image and add one field photo.",
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "revision-image.png",
-          "summary": "사용자 업로드 이미지",
-          "badge": "업로드 이미지",
-          "asset_type": "uploaded",
-          "file_url": "/media/document_revision_assets/revision-image_AyXSoDp.png",
-          "file_format_label": "Image"
+          "title": "Company Overview",
+          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
         }
       ],
       "is_visual": true,
@@ -203,29 +216,29 @@
     {
       "page_number": 7,
       "page_label": "7페이지",
-      "title": "부록",
-      "theme_label": "부록",
+      "title": "수행 방식",
+      "theme_label": "수행 방식",
       "body": [
-        "이 페이지는 부록 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "Use a more concise company introduction."
+        "이 페이지는 수행 방식 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "현재 검토 요청: Please make the second draft sharper."
+        "활용 자산: Company Overview"
       ],
-      "image_note": "Replace the hero image and add one field photo.",
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "revision-image.png",
-          "summary": "사용자 업로드 이미지",
-          "badge": "업로드 이미지",
-          "asset_type": "uploaded",
-          "file_url": "/media/document_revision_assets/revision-image_AyXSoDp.png",
-          "file_format_label": "Image"
+          "title": "Company Overview",
+          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
         }
       ],
       "is_visual": true,
@@ -234,29 +247,29 @@
     {
       "page_number": 8,
       "page_label": "8페이지",
-      "title": "부록",
-      "theme_label": "부록",
+      "title": "고객 가치",
+      "theme_label": "고객 가치",
       "body": [
-        "이 페이지는 부록 내용을 슬라이드형 구조로 재정리한 초안입니다.",
-        "Use a more concise company introduction."
+        "이 페이지는 고객 가치 내용을 슬라이드형 구조로 재정리한 초안입니다.",
+        "참조 섹션: Company Overview. 대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를 참고해 회사소개서 목적에 맞게 새로 작성해야 합니다."
       ],
       "bullets": [
         "참조 섹션: Company Overview",
-        "현재 검토 요청: Please make the second draft sharper."
+        "활용 자산: Company Overview"
       ],
-      "image_note": "Replace the hero image and add one field photo.",
+      "image_note": "추천 이미지: 엔지니어링/현장 중심 비주얼을 배치해 Uptec의 신뢰감을 강화해주세요.",
       "source_titles": [
         "Company Overview"
       ],
       "layout_style": "split",
       "visual_assets": [
         {
-          "title": "revision-image.png",
-          "summary": "사용자 업로드 이미지",
-          "badge": "업로드 이미지",
-          "asset_type": "uploaded",
-          "file_url": "/media/document_revision_assets/revision-image_AyXSoDp.png",
-          "file_format_label": "Image"
+          "title": "Company Overview",
+          "summary": "대상 고객 기준으로 'Company Overview' 섹션은 신규 생성이 필요합니다. 현재 선택된 기존 문서(참조 문서 없음)에서 직접 재사용할 항목을 찾지 못했으므로 등록된 기존 문서(등록된 기존 문서 없음)를…",
+          "badge": "승인 블록",
+          "asset_type": "block",
+          "file_url": "",
+          "file_format_label": "text"
         }
       ],
       "is_visual": true,
@@ -277,13 +290,6 @@
       "actual": "8장",
       "status": "applied",
       "status_label": "반영"
-    },
-    {
-      "label": "표현 방식",
-      "expected": "이미지 중심",
-      "actual": "이미지 중심",
-      "status": "applied",
-      "status_label": "반영"
     }
   ],
   "preview_meta": {
@@ -292,13 +298,13 @@
     "page_count": 8,
     "audience": "general",
     "request": "",
-    "revision_count": 1,
-    "last_revision_round": 1,
-    "presentation_style": "visual",
-    "presentation_style_label": "이미지 중심",
+    "revision_count": 0,
+    "last_revision_round": 0,
+    "presentation_style": "standard",
+    "presentation_style_label": "텍스트+비주얼 혼합",
     "source_document_count": 0,
     "reference_document_count": 0,
-    "revision_asset_count": 1,
+    "revision_asset_count": 0,
     "focus_term_count": 0
   }
 }
