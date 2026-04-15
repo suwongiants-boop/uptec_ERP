@@ -85,6 +85,8 @@ PROMPT_STOPWORDS = {
     "최신", "회사", "소개서", "문서", "자료", "작성", "만들어줘", "만들기", "위주", "활용", "기존", "보관", "영문",
     "국문", "한국어", "페이지", "page", "pages", "latest", "company", "overview", "document", "use", "with", "make",
     "please", "ppt", "pdf", "word", "html", "초안", "버전", "형태", "짜리", "정리", "기반", "요청",
+    "위주로", "이미지", "비주얼", "사진", "갤러리", "브로셔", "슬라이드", "image", "visual", "photo", "gallery", "brochure", "slide",
+    "보관문서", "보관", "legacy", "library", "reference", "existing",
 }
 
 
@@ -364,6 +366,8 @@ class DocumentPreviewBuilder:
         for token in tokens:
             normalized = token.lower()
             if normalized in PROMPT_STOPWORDS:
+                continue
+            if any(keyword in normalized for keyword in VISUAL_KEYWORDS + LIBRARY_KEYWORDS):
                 continue
             if normalized.isdigit():
                 continue
